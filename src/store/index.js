@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import util from '@/util.js'
 
 Vue.use(Vuex)
 
@@ -9,7 +10,6 @@ export default new Vuex.Store({
         {
           name: 'Utrecht Griftpark',
           difficulty: 'Intermediate',
-          distance: 0.3,
           image: 'park1.jpg',
           coord: {
             lat: 52.278241,
@@ -19,7 +19,6 @@ export default new Vuex.Store({
         {
           name: 'Amsterdam Zuid',
           difficulty: 'Advanced',
-          distance: 5,
           image: 'park2.jpg',
           coord: {
             lat: 51.278241,
@@ -30,7 +29,16 @@ export default new Vuex.Store({
     userLocation: undefined
   },
   getters: {
-    locations: (state) => state.locations,
+    locations: (state) => {
+      if(state.userLocation){
+        return state.locations.map(l => {
+          l.distance = util.haversine(l.coord.lat, l.coord.lon, state.userLocation.coords.latitude, state.userLocation.coords.longitude)
+          return l
+        })
+      }else{
+        return state.locations
+      }
+    },
     userLocation: (state) => state.userLocation
   },
   mutations: {
