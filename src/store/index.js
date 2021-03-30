@@ -10,6 +10,7 @@ export default new Vuex.Store({
           name: 'Utrecht Griftpark',
           difficulty: 'Intermediate',
           distance: 0.3,
+          image: 'park1.jpg',
           coord: {
             lat: 52.278241,
             lon: 5.167
@@ -19,6 +20,7 @@ export default new Vuex.Store({
           name: 'Amsterdam Zuid',
           difficulty: 'Advanced',
           distance: 5,
+          image: 'park2.jpg',
           coord: {
             lat: 51.278241,
             lon: 5.167

@@ -1,7 +1,9 @@
 <template>
   <div class="card-list-container">
     <div class="card" v-for="card, i in cards" :key="i">
-      <div class="picture-container"></div>
+      <div class="picture-container">
+        <img :src="require(`@/assets/${card.image}`)"  />
+      </div>
       <div class="property-container">
         <h3>{{card.name}}</h3>
         <p>{{card.difficulty}}</p>
@@ -24,11 +26,13 @@ export default {
 <style scoped>
 .card{
   width: 100%;
+  height: 150px;
   display: flex;
   border-radius: 0.5em;
   border: 1px solid #dddddd;
   margin-bottom: 0.5em;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card:hover{
@@ -41,6 +45,7 @@ export default {
   align-items: flex-end;
   flex-direction: column;
   padding: 1em;
+  box-sizing: border-box;
 }
 
 .property-container h3, p{
@@ -54,6 +59,12 @@ export default {
 
 .picture-container{
   width: 100%; 
+}
+
+.picture-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-list-container{
