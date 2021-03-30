@@ -30,6 +30,11 @@ export default {
     },
     updateMarkers: function(){
       this.locations.forEach(l => this.markers.addLayer(Leaflet.marker(l)))
+    },
+    getUserLocation: function(){
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition()
+      }
     }
   },
   mounted(){

@@ -26,13 +26,15 @@ export default new Vuex.Store({
             lon: 5.167
           }
         }  
-    
-      ]
+      ],
+    userLocation: undefined
   },
   getters: {
-    locations: (state) => state.locations
+    locations: (state) => state.locations,
+    userLocation: (state) => state.userLocation
   },
   mutations: {
+    setUserLocation: (state, location) => state.userLocation = location
   },
   actions: {
   },
