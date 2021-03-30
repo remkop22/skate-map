@@ -1,16 +1,19 @@
 <template>
   <div class="nav">  
-    <div class="nav-name">skate-map</div>
+    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated">skate-map</div>
     <div class="nav-item-container">
-      <router-link class="nav-item" to="/Discover"><h1>Discover</h1></router-link>
-      <router-link class="nav-item" to="/Feed"><h1>Feed</h1></router-link>
+      <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Discover</h1></router-link>
+      <router-link id="feed" class="nav-item" to="/Feed" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Feed</h1></router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Nav'
+  name: 'Nav',
+  data(){return{
+    isanimated: false 
+  }}
 }
 </script>
 
@@ -32,7 +35,8 @@ export default {
 .nav-item, .nav-name{
   margin: 0.5em 1em; 
   text-decoration: none;
-  color: black;
+  color: #1D3557;;
+  font-weight: light;
 }
 
 .router-link-exact-active{
@@ -45,6 +49,30 @@ export default {
   position: absolute;
   content: url(../assets/logo1.svg);
   max-width: 200px;
+}
+
+.nav-name.is-animated{
+  content: url(../assets/anim.gif);
+  max-width: 240px;
+  height: 55px;
+  margin-bottom: 102px;
+}
+
+#disc.is-animated{
+  content: url(../assets/compass.svg);
+  color: transparent; 
+  max-width: 40px;
+  min-height: 60px;
+  fill: #1D3557;
+}
+
+#feed.is-animated{
+  content: url(../assets/feed.svg);
+  fill: #1D3557;
+  color: transparent; 
+  max-width: 40px;
+  min-height: 60px;
+  
 }
 
 </style>
