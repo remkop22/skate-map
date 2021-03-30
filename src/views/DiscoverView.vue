@@ -12,35 +12,26 @@
       </div>
       <CardList :cards="locations" />
     </div>
-    <Map :locations="[[51.915, 4.456], [53, 6]]" />
+    <Map :locations="coords" />
   </div>
 </template>
 
 <script>
 import Map from '@/components/Map.vue'
 import CardList from '@/components/CardList.vue'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'DiscoverView',
   components: {
     Map,
     CardList
   },
-  data(){
-    return {
-      locations: [
-        {
-          name: 'Utrecht Griftpark',
-          difficulty: 'Intermediate',
-          distance: 0.3
-        },
-        {
-          name: 'Amsterdam Zuid',
-          difficulty: 'Advanced',
-          distance: 5
-        }  
-    
-      ]
-    }
+  computed: {
+    coords: function(){
+      return this.locations.map(l => [l.coord.lat, l.coord.lon])
+    },
+    ...mapGetters(['locations'])
   }
 }
 </script>
