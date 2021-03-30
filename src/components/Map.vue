@@ -6,6 +6,7 @@
 import "leaflet/dist/leaflet.css"
 import Leaflet from "leaflet"
 import "leaflet.markercluster"
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   name: "Map",
   props: {
@@ -19,6 +20,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setUserLocation']),
     setupLeaflet: function(){
       this.map = Leaflet.map("map-container").setView(this.center, 13)
       this.markers = Leaflet.markerClusterGroup()
@@ -31,15 +33,24 @@ export default {
     updateMarkers: function(){
       this.locations.forEach(l => this.markers.addLayer(Leaflet.marker(l)))
     },
-    getUserLocation: function(){
+    askUserLocation: function(){
       if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition()
+        navigator.geolocation.getCurrentPosition(this.setUserLocation)
       }
     }
   },
   mounted(){
+    this.askUserLocation()
     this.setupLeaflet()
     this.updateMarkers()
+  },
+  computed: {
+    ...mapGetters(['userLocation'])
+  },
+  watch: {
+    userLocation: function(newVal){
+      this.map.setView([newVal.coords.latitude, newVal.coords.longitude])
+    }
   }
 }
 </script>

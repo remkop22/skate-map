@@ -34,7 +34,9 @@ export default new Vuex.Store({
     userLocation: (state) => state.userLocation
   },
   mutations: {
-    setUserLocation: (state, location) => state.userLocation = location
+    setUserLocation: (state, location) => {
+      state.userLocation = location
+    }
   },
   actions: {
   },
