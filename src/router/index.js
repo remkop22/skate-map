@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MapView from '../views/MapView.vue'
+import DiscoverView from '../views/DiscoverView.vue'
 import FeedView from '../views/FeedView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'MapView',
-    component: MapView
+    path: '/discover',
+    alias: '/',
+    name: 'DiscoverView',
+    component: DiscoverView
   },
   {
     path: '/feed',

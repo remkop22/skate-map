@@ -2,9 +2,8 @@
   <div class="nav">  
     <h3 class="nav-name">skate-map</h3>
     <div class="nav-item-container">
-      <router-link class="nav-item" to="/Feed"><h1>Feed</h1></router-link>
-      <router-link class="nav-item" to="/"><h1>Map</h1></router-link>
       <router-link class="nav-item" to="/Discover"><h1>Discover</h1></router-link>
+      <router-link class="nav-item" to="/Feed"><h1>Feed</h1></router-link>
     </div>
   </div>
 </template>
