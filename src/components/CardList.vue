@@ -8,7 +8,7 @@
         <div class="properties">
           <h3>{{card.name}}</h3>
           <p>{{card.difficulty}}</p>
-          <p>Distance: {{card.distance}} km</p>
+          <p v-if="card.distance">Distance: {{card.distance.toFixed(1)}} km</p>
         </div>
       </div>
     </div> 
