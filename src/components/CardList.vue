@@ -4,10 +4,12 @@
       <div class="picture-container">
         <img :src="require(`@/assets/${card.image}`)"  />
       </div>
-      <div class="property-container">
-        <h3>{{card.name}}</h3>
-        <p>{{card.difficulty}}</p>
-        <p>Distance: {{card.distance}} km</p>
+      <div class="properties-container">
+        <div class="properties">
+          <h3>{{card.name}}</h3>
+          <p>{{card.difficulty}}</p>
+          <p>Distance: {{card.distance}} km</p>
+        </div>
       </div>
     </div> 
   </div>
@@ -39,26 +41,28 @@ export default {
   border: 1px solid #666666;
 }
 
-.property-container{
-  width: 100%;
+.properties-container{
+  flex: 1 1 0;
+}
+
+.properties{
   display: flex;
   align-items: flex-end;
   flex-direction: column;
   padding: 1em;
-  box-sizing: border-box;
 }
 
-.property-container h3, p{
+.properties h3, p{
   margin: 0.2em 0;
 }
 
-.property-container p{
+.properties p{
   color: darkgray;
   font-size: 0.9em;
 }
 
 .picture-container{
-  width: 100%; 
+  flex: 1 1 0
 }
 
 .picture-container img{
