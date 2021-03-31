@@ -14,7 +14,8 @@ export default new Vuex.Store({
           coords: {
             latitude: 52.09979,
             longitude: 5.12755
-          }
+          },
+          id: 0
         },
         {
           name: 'Amsterdam Zuid',
@@ -23,7 +24,8 @@ export default new Vuex.Store({
           coords: {
             latitude: 52.34621,
             longitude: 4.86644
-          }
+          },
+          id: 1
         },
         {
           name: 'Amsterdam Zuid',
@@ -32,10 +34,12 @@ export default new Vuex.Store({
           coords: {
             latitude: 51.91693,
             longitude: 4.47623
-          }
+          },
+          id: 2
         }
       ],
-    userLocation: undefined
+    userLocation: undefined,
+    selectedLocationId: undefined
   },
   getters: {
     locations: (state) => {
@@ -48,7 +52,8 @@ export default new Vuex.Store({
         return state.locations
       }
     },
-    userLocation: (state) => state.userLocation
+    userLocation: (state) => state.userLocation,
+    selectedLocationId: (state) => state.selectedLocationId
   },
   mutations: {
     setUserLocation: (state, location) => {

@@ -1,14 +1,14 @@
 <template>
-  <div class="card-list-container">
-    <div class="card" v-for="card, i in cards" :key="i">
+  <div class="location-list-container">
+    <div class="location-card" v-for="location, i in locations" :key="i">
       <div class="picture-container">
-        <img :src="require(`@/assets/${card.image}`)"  />
+        <img :src="require(`@/assets/${location.image}`)"  />
       </div>
       <div class="properties-container">
         <div class="properties">
-          <h3>{{card.name}}</h3>
-          <p>{{card.difficulty}}</p>
-          <p v-if="card.distance">Distance: {{card.distance.toFixed(1)}} km</p>
+          <h3>{{location.name}}</h3>
+          <p>{{location.difficulty}}</p>
+          <p v-if="location.distance">Distance: {{location.distance.toFixed(1)}} km</p>
         </div>
       </div>
     </div> 
@@ -16,17 +16,18 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: 'LocationList',
-  props: {
-    cards: Array
+  computed: {
+    ...mapGetters(['locations'])
   }
 }
 </script>
 
 
 <style scoped>
-.card{
+.location-card{
   width: 100%;
   height: 150px;
   display: flex;
@@ -37,7 +38,7 @@ export default {
   overflow: hidden;
 }
 
-.card:hover{
+.location-card:hover{
   border: 1px solid #666666;
 }
 
@@ -71,7 +72,7 @@ export default {
   object-fit: cover;
 }
 
-.card-list-container{
+.location-list-container{
   overflow-y: auto;
   overflow-x: visible;
 }

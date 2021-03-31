@@ -1,6 +1,6 @@
 <template>
   <div class="discover-view">
-    <div class="result-container">
+    <div class="location-container">
       <div class="search-container">
         <input type="search" class="search-bar search-bar-item" placeholder="Name, location or type">
         <select class="search-bar-item">
@@ -10,7 +10,7 @@
         </select>
         <input type="button" value="filter" class="filter-btn search-bar-item"/>
       </div>
-      <LocationList :cards="locations" />
+      <LocationList/>
     </div>
     <LocationMap/>
   </div>
@@ -63,7 +63,7 @@ export default {
   padding: 1em;
 }
 
-.result-container{
+.location-container{
   width: 50%;
   margin-right: 0.5em;
   height: 100%;
@@ -78,7 +78,7 @@ export default {
   border-radius: 0.5em;
 }
 
-.card-list-container{
+.location-list-container{
   margin-top: 0.5em;
   height: 100%;
 }
