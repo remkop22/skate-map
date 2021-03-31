@@ -8,6 +8,16 @@ export default new Vuex.Store({
   state: {
     locations: [
         {
+          name: 'Utrecht Jaarbeurs',
+          difficulty: 'Intermediate',
+          image: 'jaarbeurs.gif',
+          coords: {
+            latitude: 52.089,
+            longitude: 5.1068
+          },
+          id: 0
+        },
+        {
           name: 'Utrecht Griftpark',
           difficulty: 'Intermediate',
           image: 'park1.jpg',
@@ -15,7 +25,7 @@ export default new Vuex.Store({
             latitude: 52.09979,
             longitude: 5.12755
           },
-          id: 0
+          id: 1
         },
         {
           name: 'Amsterdam Zuid',
@@ -25,17 +35,17 @@ export default new Vuex.Store({
             latitude: 52.34621,
             longitude: 4.86644
           },
-          id: 1
+          id: 2
         },
         {
-          name: 'Amsterdam Zuid',
+          name: 'Rotterdam Zuid',
           difficulty: 'Advanced',
           image: 'park2.jpg',
           coords: {
             latitude: 51.91693,
             longitude: 4.47623
           },
-          id: 2
+          id: 3
         }
       ],
     userLocation: undefined,
