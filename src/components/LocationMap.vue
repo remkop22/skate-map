@@ -8,7 +8,7 @@ import Leaflet from "leaflet"
 import "leaflet.markercluster"
 import { mapMutations, mapGetters } from 'vuex'
 export default {
-  name: "Map",
+  name: "LocationMap",
     data(){
     return {
       center: [52.1326, 5.2913],

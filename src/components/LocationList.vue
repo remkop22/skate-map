@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'CardList',
+  name: 'LocationList',
   props: {
     cards: Array
   }

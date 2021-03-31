@@ -10,22 +10,22 @@
         </select>
         <input type="button" value="filter" class="filter-btn search-bar-item"/>
       </div>
-      <CardList :cards="locations" />
+      <LocationList :cards="locations" />
     </div>
-    <Map/>
+    <LocationMap/>
   </div>
 </template>
 
 <script>
-import Map from '@/components/Map.vue'
-import CardList from '@/components/CardList.vue'
+import LocationMap from '@/components/LocationMap.vue'
+import LocationList from '@/components/LocationList.vue'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'DiscoverView',
   components: {
-    Map,
-    CardList
+    LocationMap,
+    LocationList
   },
   computed: {
     ...mapGetters(['locations'])
