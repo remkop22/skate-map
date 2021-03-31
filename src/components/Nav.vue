@@ -1,6 +1,10 @@
 <template>
   <div class="nav">  
-    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"></div>
+    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><vLottiePlayer
+        name="workoutMonkeyAnim"
+        loop
+        :animationData="require('../assets/logo.json')"
+      /></div>
     <div class="nav-item-container">
       <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Discover</h1></router-link>
       <router-link id="feed" class="nav-item" to="/Feed" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Feed</h1></router-link>
@@ -9,11 +13,15 @@
 </template>
 
 <script>
+import VueLottiePlayer from "vue-lottie-player";
 export default {
   name: 'Nav',
   data(){return{
     isanimated: false 
-  }}
+  }},
+  components: {
+  vLottiePlayer: VueLottiePlayer
+  }
 }
 </script>
 
@@ -53,7 +61,7 @@ export default {
 }
 
   .nav-name.is-animated{
-    /* content: url(../assets/logo.json); */
+    /* content:  */
     max-width: 240px;
     height: 43px;
   }
@@ -68,7 +76,7 @@ export default {
 
 #feed.is-animated{
   content: url(../assets/feed.svg);
-  fill: #1D3557;
+  fill:#1D3557;
   color: transparent; 
   max-width: 40px;
   min-height: 60px;
