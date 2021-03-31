@@ -1,6 +1,7 @@
 <template>
   <div class="location-list-container">
-    <div class="location-card" v-for="location, i in locations" :key="i">
+    <div class="location-card" v-for="location, i in locations" :key="i" :class="{'location-card-selected': selectedLocationId === location.id}" 
+      @click="setSelectedLocationId(location.id)" >
       <div class="picture-container">
         <img :src="require(`@/assets/${location.image}`)"  />
       </div>
@@ -16,11 +17,14 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'LocationList',
+  methods: {
+    ...mapMutations(['setSelectedLocationId'])
+  },
   computed: {
-    ...mapGetters(['locations'])
+    ...mapGetters(['locations', 'selectedLocationId'])
   }
 }
 </script>
@@ -36,6 +40,10 @@ export default {
   margin-bottom: 0.5em;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.location-card-selected{
+  background: lightgray;
 }
 
 .location-card:hover{
