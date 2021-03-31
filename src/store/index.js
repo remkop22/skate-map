@@ -12,8 +12,8 @@ export default new Vuex.Store({
           difficulty: 'Intermediate',
           image: 'park1.jpg',
           coord: {
-            lat: 52.278241,
-            lon: 5.167
+            lat: 52.09979,
+            lon: 5.12755
           }
         },
         {
@@ -21,10 +21,19 @@ export default new Vuex.Store({
           difficulty: 'Advanced',
           image: 'park2.jpg',
           coord: {
-            lat: 51.278241,
-            lon: 5.167
+            lat: 52.34621,
+            lon: 4.86644
           }
-        }  
+        },
+        {
+          name: 'Amsterdam Zuid',
+          difficulty: 'Advanced',
+          image: 'park2.jpg',
+          coord: {
+            lat: 51.91693,
+            lon: 4.47623
+          }
+        }
       ],
     userLocation: undefined
   },
