@@ -10,7 +10,8 @@
       />
       </div>
     <div class="nav-item-container">
-      <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"  v-anime="{}"><h1>Discover</h1></router-link>
+      <div v-anime="{ rotate: '1turn', backgroundColor: '#FFF', duration: 2000, loop: true }"></div>
+      <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Discover</h1></router-link>
       <router-link id="feed" class="nav-item" to="/Feed" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Feed</h1></router-link>
     </div>
   </div>
@@ -45,6 +46,13 @@ export default {
 .nav-item, .nav-name{
   margin: 0.5em 1em; 
   text-decoration: none;
+  color: #001334;
+  font-weight: light;
+}
+h1{
+   margin: 0.5em 1em; 
+  text-decoration: none;
+  text-decoration-thickness: auto;
   color: #001334;
   font-weight: light;
 }
