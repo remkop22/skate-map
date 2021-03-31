@@ -12,7 +12,7 @@
       </div>
       <CardList :cards="locations" />
     </div>
-    <Map :locations="coords" />
+    <Map/>
   </div>
 </template>
 
@@ -28,9 +28,6 @@ export default {
     CardList
   },
   computed: {
-    coords: function(){
-      return this.locations.map(l => [l.coord.lat, l.coord.lon])
-    },
     ...mapGetters(['locations'])
   }
 }

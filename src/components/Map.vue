@@ -9,12 +9,9 @@ import "leaflet.markercluster"
 import { mapMutations, mapGetters } from 'vuex'
 export default {
   name: "Map",
-  props: {
-    locations: Array
-  },
-  data(){
+    data(){
     return {
-      center: [51.915, 4.456],
+      center: [52.1326, 5.2913],
       map: undefined,
       markers: undefined
     }
@@ -22,7 +19,7 @@ export default {
   methods: {
     ...mapMutations(['setUserLocation']),
     setupLeaflet: function(){
-      this.map = Leaflet.map("map-container").setView(this.center, 13)
+      this.map = Leaflet.map("map-container").setView(this.center, 6.8)
       this.markers = Leaflet.markerClusterGroup()
       Leaflet.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
@@ -31,7 +28,7 @@ export default {
       this.map.addLayer(this.markers)
     },
     updateMarkers: function(){
-      this.locations.forEach(l => this.markers.addLayer(Leaflet.marker(l)))
+      this.locations.forEach(l => this.markers.addLayer(Leaflet.marker([l.coords.latitude, l.coords.longitude]).on('click', e => console.log(e))))
     },
     askUserLocation: function(){
       if(navigator.geolocation){
@@ -45,11 +42,11 @@ export default {
     this.updateMarkers()
   },
   computed: {
-    ...mapGetters(['userLocation'])
+    ...mapGetters(['userLocation', 'locations'])
   },
   watch: {
     userLocation: function(newVal){
-      this.map.setView([newVal.coords.latitude, newVal.coords.longitude])
+      this.map.setView([newVal.coords.latitude, newVal.coords.longitude], 10)
     }
   }
 }
