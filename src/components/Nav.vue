@@ -3,6 +3,8 @@
     <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><vLottiePlayer
         name="workoutMonkeyAnim"
         loop
+        height=105px
+        speed=0.1
         :animationData="require('../assets/logo.json')"
       /></div>
     <div class="nav-item-container">
@@ -52,18 +54,13 @@ export default {
   text-decoration: underline;
 }
 
-.nav-name{
-  color: black;
-  user-select: none;
-  position: absolute;
-  content: url(../assets/logo1.svg);
-  max-width: 200px;
-}
+/* .nav-name{
+  max-height: 90px;
+} */
 
   .nav-name.is-animated{
-    /* content:  */
     max-width: 240px;
-    height: 43px;
+    /* height: 43px; */
   }
 
 #disc.is-animated{
@@ -72,11 +69,13 @@ export default {
   max-width: 40px;
   min-height: 60px;
   fill: #1D3557;
+  filter: invert(18%) sepia(7%) saturate(4981%) hue-rotate(177deg) brightness(97%) contrast(93%);
 }
 
 #feed.is-animated{
   content: url(../assets/feed.svg);
   fill:#1D3557;
+  filter: invert(18%) sepia(7%) saturate(4981%) hue-rotate(177deg) brightness(97%) contrast(93%);
   color: transparent; 
   max-width: 40px;
   min-height: 60px;
