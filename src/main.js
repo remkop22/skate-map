@@ -2,6 +2,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vue from "vue";
+import VueAnime from 'vue-animejs';
+Vue.use(VueAnime)
 
 import VueLottiePlayer from "vue-lottie-player";
 Vue.use(VueLottiePlayer);
@@ -13,6 +15,7 @@ Leaflet.Icon.Default.mergeOptions({
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
+
 
 Vue.config.productionTip = false
 

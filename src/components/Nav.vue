@@ -1,29 +1,28 @@
 <template>
   <div class="nav">  
-    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><vLottiePlayer
-        name="workoutMonkeyAnim"
+    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated">
+      <vLottiePlayer
+        ref="anim"
+        name="Skatemap"
         loop
         height=105px
-        speed=0.1
-        :animationData="require('../assets/logo.json')"
-      /></div>
+        :animationData="require('../assets/logo.json')" :speed="0.2"
+      />
+      </div>
     <div class="nav-item-container">
-      <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Discover</h1></router-link>
+      <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"  v-anime="{}"><h1>Discover</h1></router-link>
       <router-link id="feed" class="nav-item" to="/Feed" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Feed</h1></router-link>
     </div>
   </div>
 </template>
 
 <script>
-import VueLottiePlayer from "vue-lottie-player";
+// import VueLottiePlayer from "vue-lottie-player";
 export default {
   name: 'Nav',
   data(){return{
     isanimated: false 
   }},
-  components: {
-  vLottiePlayer: VueLottiePlayer
-  }
 }
 </script>
 
@@ -46,7 +45,7 @@ export default {
 .nav-item, .nav-name{
   margin: 0.5em 1em; 
   text-decoration: none;
-  color: #1D3557;;
+  color: #001334;
   font-weight: light;
 }
 
@@ -68,14 +67,12 @@ export default {
   color: transparent; 
   max-width: 40px;
   min-height: 60px;
-  fill: #1D3557;
-  filter: invert(18%) sepia(7%) saturate(4981%) hue-rotate(177deg) brightness(97%) contrast(93%);
+  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
 }
 
 #feed.is-animated{
   content: url(../assets/feed.svg);
-  fill:#1D3557;
-  filter: invert(18%) sepia(7%) saturate(4981%) hue-rotate(177deg) brightness(97%) contrast(93%);
+  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
   color: transparent; 
   max-width: 40px;
   min-height: 60px;
