@@ -5,6 +5,7 @@
 <script>
 import "leaflet/dist/leaflet.css"
 import Leaflet from "leaflet"
+import "leaflet.markercluster/dist/MarkerCluster.Default.css"
 import "leaflet.markercluster"
 import { mapMutations, mapGetters } from 'vuex'
 export default {
