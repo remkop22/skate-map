@@ -53,12 +53,12 @@ export default new Vuex.Store({
       }
     },
     userLocation: (state) => state.userLocation,
-    selectedLocationId: (state) => state.selectedLocationId
+    selectedLocationId: (state) => state.selectedLocationId,
+    selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId)
   },
   mutations: {
-    setUserLocation: (state, location) => {
-      state.userLocation = location
-    }
+    setUserLocation: (state, location) => state.userLocation = location,
+    setSelectedLocationId: (state, id) => state.selectedLocationId = id
   },
   actions: {
   },

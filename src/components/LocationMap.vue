@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setUserLocation']),
+    ...mapMutations(['setUserLocation', 'setSelectedLocationId']),
     setupLeaflet: function(){
       this.map = Leaflet.map("map-container").setView(this.center, 6.8)
       this.markers = Leaflet.markerClusterGroup()
@@ -28,11 +28,18 @@ export default {
       this.map.addLayer(this.markers)
     },
     updateMarkers: function(){
-      this.locations.forEach(l => this.markers.addLayer(Leaflet.marker([l.coords.latitude, l.coords.longitude]).on('click', e => console.log(e))))
+      this.locations.forEach(l => this.markers.addLayer(Leaflet.marker([l.coords.latitude, l.coords.longitude]).on('click', () => this.setSelectedLocationId(l.id))))
     },
     askUserLocation: function(){
       if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(this.setUserLocation)
+      }
+    },
+    moveToLocation: function(location, zoom = 10){
+      if(zoom == undefined){
+        this.map.setView([location.coords.latitude, location.coords.longitude])
+      }else{
+        this.map.setView([location.coords.latitude, location.coords.longitude], zoom)
       }
     }
   },
@@ -42,11 +49,20 @@ export default {
     this.updateMarkers()
   },
   computed: {
-    ...mapGetters(['userLocation', 'locations'])
+    ...mapGetters(['userLocation', 'locations', 'selectedLocation', 'selectedLocationId'])
   },
   watch: {
-    userLocation: function(newVal){
-      this.map.setView([newVal.coords.latitude, newVal.coords.longitude], 10)
+    userLocation(newVal){
+      if(this.setSelectedLocationId === undefined){
+        this.moveToLocation(newVal)
+      }
+    },
+    selectedLocation(newVal){
+      if(newVal === undefined){
+        this.moveToLocation(this.userLocation, undefined)
+      }else{
+        this.moveToLocation(newVal, undefined)
+      }
     }
   }
 }
