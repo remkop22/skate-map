@@ -1,6 +1,6 @@
 <template>
   <div class="nav">  
-    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated">skate-map</div>
+    <div class="nav-name" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"></div>
     <div class="nav-item-container">
       <router-link id="disc" class="nav-item" to="/Discover" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Discover</h1></router-link>
       <router-link id="feed" class="nav-item" to="/Feed" :class="{'is-animated': isanimated}" @click="isanimated = !isanimated"><h1>Feed</h1></router-link>
@@ -23,6 +23,7 @@ export default {
   display: flex;
   border-bottom: 2px solid #dddddd;
   align-items: center;
+  min-height: 90px;
 }
 
 .nav-item-container{
@@ -51,12 +52,11 @@ export default {
   max-width: 200px;
 }
 
-.nav-name.is-animated{
-  content: url(../assets/anim.gif);
-  max-width: 240px;
-  height: 55px;
-  margin-bottom: 102px;
-}
+  .nav-name.is-animated{
+    /* content: url(../assets/logo.json); */
+    max-width: 240px;
+    height: 43px;
+  }
 
 #disc.is-animated{
   content: url(../assets/compass.svg);
