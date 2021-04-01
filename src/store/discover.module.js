@@ -33,7 +33,7 @@ export default {
     fetchLocations({commit}, query){
       return new Promise((resolve, reject) => locationsAPI.getLocations(query)
         .then(locations => {
-          commit('discover/setLocations', locations)
+          commit('setLocations', locations)
           resolve()
         })
         .catch(err => reject(err))

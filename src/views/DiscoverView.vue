@@ -2,7 +2,7 @@
   <div class="discover-view">
     <div class="location-container">
       <div class="search-container">
-        <input type="search" class="search-bar search-bar-item" placeholder="Name, location or type" @keydown.enter="searchSubmit">
+        <input type="search" class="search-bar search-bar-item" placeholder="Name, location or type" @keydown.enter="searchSubmit" v-model="query" >
         <select class="search-bar-item">
           <option>Nearby</option>
           <option>Popular</option>
@@ -23,6 +23,11 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'DiscoverView',
+  data(){
+    return {
+      query: ''
+    }
+  },
   components: {
     LocationMap,
     LocationList
@@ -30,7 +35,7 @@ export default {
   methods: {
     ...mapActions('discover', ['fetchLocations']),
     searchSubmit(){
-      this.fetchLocations().catch(err => console.error(err))
+      this.fetchLocations(this.query).catch(err => console.error(err))
     }
   },
   computed: {
