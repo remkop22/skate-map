@@ -29,6 +29,7 @@ export default {
       this.map.addLayer(this.markers)
     },
     updateMarkers: function(){
+      this.markers.clearLayers()
       this.locations.forEach(l => this.markers.addLayer(Leaflet.marker([l.coords.latitude, l.coords.longitude]).on('click', () => this.setSelectedLocationId(l.id))))
     },
     askUserLocation: function(){
@@ -64,6 +65,9 @@ export default {
       }else{
         this.moveToLocation(newVal, undefined)
       }
+    },
+    locations(){
+      this.updateMarkers()
     }
   }
 }
