@@ -40,6 +40,9 @@ export default {
   },
   computed: {
     ...mapGetters('discover' ,['locations'])
+  },
+  mounted(){
+    this.searchSubmit()
   }
 }
 </script>
