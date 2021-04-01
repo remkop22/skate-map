@@ -1,13 +1,18 @@
 
 import util from '@/util.js'
 
-const discoverModule = {
+export default {
+  namespaced: true,
   state: () => ({
     locations: [],
     userLocation: undefined,
     selectedLocationId: undefined
   }),
   mutations: {
+    setUserLocation: (state, location) => state.userLocation = location,
+    setSelectedLocationId: (state, id) => state.selectedLocationId = id
+  },
+  getters: {
     locations: (state) => {
       if(state.userLocation){
         return state.locations.map(l => {
@@ -21,11 +26,6 @@ const discoverModule = {
     userLocation: (state) => state.userLocation,
     selectedLocationId: (state) => state.selectedLocationId,
     selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId)
-  },
-  getters: {
-    setUserLocation: (state, location) => state.userLocation = location,
-    setSelectedLocationId: (state, id) => state.selectedLocationId = id
   }
 }
 
-export default discoverModule

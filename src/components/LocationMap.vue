@@ -18,7 +18,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setUserLocation', 'setSelectedLocationId']),
+    ...mapMutations('discover', ['setUserLocation', 'setSelectedLocationId']),
     setupLeaflet: function(){
       this.map = Leaflet.map("map-container").setView(this.center, 6.8)
       this.markers = Leaflet.markerClusterGroup()
@@ -50,7 +50,7 @@ export default {
     this.updateMarkers()
   },
   computed: {
-    ...mapGetters(['userLocation', 'locations', 'selectedLocation', 'selectedLocationId'])
+    ...mapGetters('discover', ['userLocation', 'locations', 'selectedLocation', 'selectedLocationId'])
   },
   watch: {
     userLocation(newVal){
