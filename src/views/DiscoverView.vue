@@ -45,6 +45,13 @@ export default {
   computed: {
     ...mapGetters('discover' ,['locations', 'userLocation'])
   },
+  watch: {
+    userLocation(){
+      if(this.sort == 'distance'){
+        this.searchSubmit()
+      }
+    }
+  },
   mounted(){
     this.searchSubmit()
   }
