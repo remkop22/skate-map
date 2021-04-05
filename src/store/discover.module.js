@@ -1,5 +1,6 @@
 
 import locationsAPI from '@/api/locations.endpoint.js'
+import util from '@/util.js'
 
 export default {
   namespaced: true,
@@ -14,7 +15,10 @@ export default {
     setSelectedLocationId: (state, id) => state.selectedLocationId = id
   },
   getters: {
-    locations: (state) => state.locations,
+    locations: (state) => state.locations.map(l => {
+      l.distance = state.userLocation ? util.haversine(l.coords, state.userLocation.coords) : undefined
+      return l
+    }),
     userLocation: (state) => state.userLocation,
     selectedLocationId: (state) => state.selectedLocationId,
     selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId)
