@@ -3,10 +3,10 @@
     <div class="location-container">
       <div class="search-container">
         <input type="search" class="search-bar search-bar-item" placeholder="Name, location or type" @keydown.enter="searchSubmit" v-model="query" >
-        <select class="search-bar-item">
-          <option>Nearby</option>
-          <option>Popular</option>
-          <option>Rating</option>
+        <select class="search-bar-item" v-model="sort" @change="searchSubmit">
+          <option value="distance">Distance</option>
+          <option value="popularity">Popularity</option>
+          <option value="rating">Rating</option>
         </select>
         <input type="button" value="filter" class="filter-btn search-bar-item"/>
       </div>
@@ -25,7 +25,8 @@ export default {
   name: 'DiscoverView',
   data(){
     return {
-      query: ''
+      query: '',
+      sort: 'distance'
     }
   },
   components: {
@@ -35,11 +36,14 @@ export default {
   methods: {
     ...mapActions('discover', ['fetchLocations']),
     searchSubmit(){
-      this.fetchLocations(this.query).catch(err => console.error(err))
+      this.fetchLocations({
+        query: this.query, 
+        sort: this.sort
+      }).catch(err => console.error(err))
     }
   },
   computed: {
-    ...mapGetters('discover' ,['locations'])
+    ...mapGetters('discover' ,['locations', 'userLocation'])
   },
   mounted(){
     this.searchSubmit()
