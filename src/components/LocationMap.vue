@@ -37,7 +37,7 @@ export default {
         navigator.geolocation.getCurrentPosition(this.setUserLocation)
       }
     },
-    moveToLocation: function(location, zoom = 10){
+    moveToLocation: function(location, zoom = 9){
       if(zoom == undefined){
         this.map.setView([location.coords.latitude, location.coords.longitude])
       }else{

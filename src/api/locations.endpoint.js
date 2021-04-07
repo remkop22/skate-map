@@ -8,7 +8,6 @@ export default {
    
     query ? params['q'] = query : undefined
     sort ? params['sort'] = sort : undefined
-    console.log(userLocation)
     if(userLocation && sort == 'distance'){
       params['latitude'] = userLocation.latitude
       params['longitude'] = userLocation.longitude
