@@ -32,22 +32,22 @@ export default {
 
 <style scoped>
 .location-card{
+  background-color: #C2C5CC;
   width: 100%;
   height: 150px;
   display: flex;
-  border-radius: 0.5em;
-  border: 1px solid #dddddd;
+  border-radius: 1.7em;
   margin-bottom: 0.5em;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .location-card-selected{
-  background: lightgray;
+  background: #C2C5CC;
 }
 
 .location-card:hover{
-  border: 1px solid #666666;
+
 }
 
 .properties-container{
@@ -66,7 +66,7 @@ export default {
 }
 
 .properties p{
-  color: darkgray;
+  color: #1D3557;
   font-size: 0.9em;
 }
 
@@ -83,6 +83,9 @@ export default {
 .location-list-container{
   overflow-y: auto;
   overflow-x: visible;
+}
+h3{
+  font-weight: bold;
 }
 
 </style>

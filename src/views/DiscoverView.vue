@@ -2,13 +2,13 @@
   <div class="discover-view">
     <div class="location-container">
       <div class="search-container">
-        <input type="search" class="search-bar search-bar-item" placeholder="Name, location or type">
+        <input type="search" class="search-bar search-bar-item">
         <select class="search-bar-item">
           <option>Nearby</option>
           <option>Popular</option>
           <option>Rating</option>
         </select>
-        <input type="button" value="filter" class="filter-btn search-bar-item"/>
+        <input type="button" class="filter-btn search-bar-item" onclick=""/>
       </div>
       <LocationList/>
     </div>
@@ -35,18 +35,33 @@ export default {
 
 <style scoped>
 
+@media (max-width: 900px){
+  .discover-view{
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+  }
+  .location-container{
+    max-width: 600px;
+  }
+}
 .search-bar{
   width: 100%;
+  max-width: 400px;
+  background: url(../assets/search.svg) top left  no-repeat;
+  background-size: 25px;
+  background-color: #C2C5CC;
 }
 
 .filter-btn{
   margin-right: 0 !important;
+  background: url(../assets/list.svg) top left no-repeat;
+  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
 }
 
 .search-bar-item{
   margin-right: 0.2em;
-  background-color: transparent;
-  border: 2px solid #dddddd; 
+  border: none; 
   padding: 0.3em 1em;
   border-radius: 7px;
   appearance: none;
@@ -54,6 +69,7 @@ export default {
 
 .search-container{
   display: flex;
+  justify-content: space-between;
 }
 
 .discover-view{
@@ -64,7 +80,6 @@ export default {
 }
 
 .location-container{
-  width: 50%;
   margin-right: 0.5em;
   height: 100%;
   display: flex;
@@ -81,5 +96,9 @@ export default {
 .location-list-container{
   margin-top: 0.5em;
   height: 100%;
+}
+select{
+  background-color: #C2C5CC;
+  color: #909192;
 }
 </style>

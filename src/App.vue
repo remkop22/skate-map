@@ -19,6 +19,7 @@ export default {
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
 html, body{
   margin: 0;
@@ -27,7 +28,7 @@ html, body{
 }
 
 #app {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -36,7 +37,7 @@ html, body{
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color : #F7F1DA;
+  background-color : #F2F2F2;
 }
 
 #nav {
