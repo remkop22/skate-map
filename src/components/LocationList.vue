@@ -34,10 +34,10 @@ export default {
 .location-card{
   background-color: #C2C5CC;
   width: 100%;
-  height: 150px;
+  height: 110px;
   display: flex;
   border-radius: 1.7em;
-  margin-bottom: 0.5em;
+  margin-bottom: 10px;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -58,16 +58,16 @@ export default {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  padding: 1em;
+  padding: 6px;
 }
 
 .properties h3, p{
-  margin: 0.2em 0;
+  margin: 2pt 6pt;
+  font-size: 12pt 11pt;
 }
 
 .properties p{
   color: #1D3557;
-  font-size: 0.9em;
 }
 
 .picture-container{
@@ -83,9 +83,6 @@ export default {
 .location-list-container{
   overflow-y: auto;
   overflow-x: visible;
-}
-h3{
-  font-weight: bold;
 }
 
 </style>

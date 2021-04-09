@@ -10,6 +10,8 @@
         </select>
         <input type="button" class="filter-btn search-bar-item" onclick=""/>
       </div>
+      <div class="filter-container">
+      </div>
       <LocationList/>
     </div>
     <LocationMap/>
@@ -70,6 +72,7 @@ export default {
 .search-container{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .discover-view{

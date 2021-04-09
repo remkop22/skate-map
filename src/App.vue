@@ -32,7 +32,6 @@ html, body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  font-weight: 700;
   color: #1D3557;
   display: flex;
   flex-direction: column;
