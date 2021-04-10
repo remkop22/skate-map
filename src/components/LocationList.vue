@@ -36,7 +36,7 @@ export default {
   width: 100%;
   height: 110px;
   display: flex;
-  border-radius: 1.7em;
+  border-radius: 32px;
   margin-bottom: 10px;
   box-sizing: border-box;
   overflow: hidden;
@@ -59,15 +59,17 @@ export default {
   align-items: flex-end;
   flex-direction: column;
   padding: 6px;
+  font-weight: 500;
 }
 
 .properties h3, p{
-  margin: 2pt 6pt;
-  font-size: 12pt 11pt;
+  margin: 10px 40px 0px 0px;
 }
 
 .properties p{
   color: #1D3557;
+  font-weight: 300;
+  font-size: 11pt;
 }
 
 .picture-container{

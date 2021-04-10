@@ -21,13 +21,6 @@
 </template>
 
 <script>
-// // import VueLottiePlayer from "vue-lottie-player";
-// export default {
-//   name: 'Nav',
-//   data(){return{
-//     isanimated: false 
-//   }},
-// }
 </script>
 
 <style scoped>
@@ -52,31 +45,5 @@
   align-content: center;
   align-items: center;
 }
-
-/* .nav-item-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.nav-item, .nav-name{
-  margin: 0.5em 1em; 
-  text-decoration: none;
-  color: #001334;
-  font-weight: light;
-}
-h1{
-   margin: 0.5em 1em; 
-  text-decoration: none;
-  text-decoration-thickness: auto;
-  color: #001334;
-  font-weight: light;
-} */
-
-/* .nav-name{
-  max-height: 90px;
-} */
-
 
 </style>

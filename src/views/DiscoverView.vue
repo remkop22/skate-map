@@ -8,7 +8,7 @@
           <option>Popular</option>
           <option>Rating</option>
         </select>
-        <input type="button" class="filter-btn search-bar-item" onclick=""/>
+        <router-link class="filter-btn search-bar-item" to="/Feed"></router-link>
       </div>
       <div class="filter-container">
       </div>
@@ -102,6 +102,6 @@ export default {
 }
 select{
   background-color: #C2C5CC;
-  color: #909192;
+  color: #001334;
 }
 </style>
