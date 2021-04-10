@@ -49,7 +49,8 @@ export default {
   width: 100%;
   max-width: 400px;
   background: url(../assets/search.svg) center left  no-repeat, url(../assets/cursor.svg)center right no-repeat;
-  background-size: 1.5em;
+  background-size: 25px, 14px;
+  background-origin: content-box;
   background-color: #C2C5CC;
 }
 
