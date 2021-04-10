@@ -48,8 +48,8 @@ export default {
 .search-bar{
   width: 100%;
   max-width: 400px;
-  background: url(../assets/search.svg) top left  no-repeat;
-  background-size: 25px;
+  background: url(../assets/search.svg) center left  no-repeat, url(../assets/cursor.svg)center right no-repeat;
+  background-size: 1.5em;
   background-color: #C2C5CC;
 }
 

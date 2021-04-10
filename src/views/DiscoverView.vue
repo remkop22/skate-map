@@ -47,7 +47,7 @@ export default {
     overflow: visible;
   }
   .location-container{
-    max-width: 600px;
+    max-width: 100%;
   }
 }
 .search-bar{
@@ -97,7 +97,6 @@ export default {
 }
 
 .location-container{
-  margin-right: 0.5em;
   height: 100%;
   display: flex;
   flex-direction: column;
