@@ -49,7 +49,8 @@ export default new Vuex.Store({
         }
       ],
     userLocation: undefined,
-    selectedLocationId: undefined
+    selectedLocationId: undefined,
+    windowSize: undefined
   },
   getters: {
     locations: (state) => {
@@ -64,11 +65,14 @@ export default new Vuex.Store({
     },
     userLocation: (state) => state.userLocation,
     selectedLocationId: (state) => state.selectedLocationId,
-    selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId)
+    selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId),
+    getWindowSize: (state) => state.windowSize,
+    isMobile: (state) => state.windowSize !== undefined && state.windowSize.width < 900
   },
   mutations: {
     setUserLocation: (state, location) => state.userLocation = location,
-    setSelectedLocationId: (state, id) => state.selectedLocationId = id
+    setSelectedLocationId: (state, id) => state.selectedLocationId = id,
+    setWindowSize: (state, {width, height}) => state.windowSize = {width, height}
   },
   actions: {
   },

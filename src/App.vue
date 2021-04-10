@@ -8,10 +8,26 @@
 
 <script>
 import Nav from '@/components/Nav.vue'
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   name: 'App',
   components: {
     Nav
+  },
+  mounted(){
+    this.$nextTick(() => window.addEventListener('resize', this.handleResize))
+  },
+  beforeDestroy(){
+    window.removeEventListener('resize', this.handleResize)
+  },
+  computed: {
+    ...mapGetters(['isMobile', 'getWindowSize'])
+  },
+  methods: {
+    ...mapMutations(['setWindowSize']),
+    handleResize(){
+      this.setWindowSize({width: window.innerWidth, height: window.innerHeight}) 
+    }
   }
 }
 </script>

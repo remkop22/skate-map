@@ -10,7 +10,7 @@
         </select>
         <router-link class="filter-btn search-bar-item" to="/Feed"></router-link>
       </div>
-            <div class="filter-container">
+          <div class="filter-container">
           <div class="filterbutton"></div>
           <div class="stars"></div>
           <div class="sort"></div>
@@ -57,10 +57,10 @@ export default {
   background-size: 25px;
   background-color: #C2C5CC;
 }
+
 .search-bar:focus-within{
   width: 100%;
   max-width: 400px;
-  background: url() top left  no-repeat;
   background-size: 25px;
   background-color: #C2C5CC;
   outline: none;
@@ -114,6 +114,7 @@ export default {
   margin-top: 0.5em;
   height: 100%;
 }
+
 .filterbutton{
     width: 30px;
     height: 30px;
@@ -134,6 +135,7 @@ export default {
     margin-right: 20px;
     background: url(../assets/sort.svg) top right no-repeat;
 }
+
 select{
   background-color: #C2C5CC;
   color: #001334;
