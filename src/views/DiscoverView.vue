@@ -10,7 +10,10 @@
         </select>
         <router-link class="filter-btn search-bar-item" to="/Feed"></router-link>
       </div>
-      <div class="filter-container">
+            <div class="filter-container">
+          <div class="filterbutton"></div>
+          <div class="stars"></div>
+          <div class="sort"></div>
       </div>
       <LocationList/>
     </div>
@@ -83,6 +86,9 @@ export default {
   margin-bottom: 30px;
 }
 
+.filter-container{
+  display: flex;
+}
 .discover-view{
   display: flex;
   overflow: hidden;
@@ -107,6 +113,26 @@ export default {
 .location-list-container{
   margin-top: 0.5em;
   height: 100%;
+}
+.filterbutton{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    background: url(../assets/settings.svg) top left no-repeat;
+}
+
+.stars{
+    width: 100%;
+    height: 30px;
+    margin-right: 20px;
+    background: url(../assets/stars.svg) top right no-repeat;
+}
+
+.sort{
+    width: 100px;
+    height: 30px;
+    margin-right: 20px;
+    background: url(../assets/sort.svg) top right no-repeat;
 }
 select{
   background-color: #C2C5CC;
