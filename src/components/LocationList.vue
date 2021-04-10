@@ -46,10 +46,6 @@ export default {
   background: #C2C5CC;
 }
 
-.location-card:hover{
-
-}
-
 .properties-container{
   flex: 1 1 0;
 }

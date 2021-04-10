@@ -54,10 +54,18 @@ export default {
   background-size: 25px;
   background-color: #C2C5CC;
 }
+.search-bar:focus-within{
+  width: 100%;
+  max-width: 400px;
+  background: url() top left  no-repeat;
+  background-size: 25px;
+  background-color: #C2C5CC;
+  outline: none;
+}
 
 .filter-btn{
   margin-right: 0 !important;
-  background: url(../assets/list.svg) top left no-repeat;
+  background: url(../assets/map.svg) top left no-repeat;
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
 }
 
