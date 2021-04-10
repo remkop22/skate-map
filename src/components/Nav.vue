@@ -31,26 +31,10 @@
 </script>
 
 <style scoped>
-@media (max-width: 900px) {
-  #disc{
-  content: url(../assets/compass.svg);
-  max-width: 40px;
-  min-height: 60px;
-  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
-  }
-
-  #feed{
-  content: url(../assets/feed.svg);
-  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
-  max-width: 40px;
-  min-height: 60px;
-  }
-}
-
 
 .hamburger{
   margin: 20px;
-  max-width:  20px;
+  max-width:  30px;
   max-height: 20px;
   content: url(../assets/hamburger.svg);
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
