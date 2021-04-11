@@ -54,15 +54,6 @@ export default {
   background-color: #C2C5CC;
 }
 
-.search-bar:focus-within{
-  width: 100%;
-  max-width: 400px;
-  background: url() top left  no-repeat;
-  background-size: 25px;
-  background-color: #C2C5CC;
-  outline: none;
-}
-
 
 .filter-btn{
   margin-right: 0 !important;

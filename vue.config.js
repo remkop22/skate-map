@@ -1,16 +1,8 @@
 module.exports = {
-  configureWebpack:{
-    module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          use: [
-            'vue-style-loader',
-            'css-loader',
-            'sass-loader'
-          ]
-        }
-      ]
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: []
     }
   }
 }
