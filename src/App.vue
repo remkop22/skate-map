@@ -33,11 +33,12 @@ html, body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color : $primary;
   color: $secondary;
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color : $primary;
+
 }
 
 #nav {
