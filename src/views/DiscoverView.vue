@@ -58,6 +58,7 @@ export default {
   background-color: #C2C5CC;
 }
 
+
 .filter-btn{
   margin-right: 0 !important;
   background: url(../assets/map.svg) top left no-repeat;

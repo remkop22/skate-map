@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 
-/* @import "./scss/variables.scss"; */
+@import "./scss/variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
@@ -33,11 +33,11 @@ html, body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #1D3557;
+  color: $secondary;
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color : #F2F2F2;
+  background-color : $primary;
 }
 
 #nav {
@@ -46,10 +46,10 @@ html, body{
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: $secondary;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: $secondary;
 }
 </style>
