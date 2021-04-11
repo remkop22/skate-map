@@ -1,5 +1,6 @@
 <template>
   <div class="discover-view">
+    <div class="location-container">
       <div class="search-container">
         <input type="search" class="search-bar search-bar-item">
         <select class="search-bar-item">
@@ -7,30 +8,41 @@
           <option>Popular</option>
           <option>Rating</option>
         </select>
-        <router-link class="filter-btn search-bar-item" to="/Discover"></router-link>
+        <component v-bind:is="icon"></component>
+        <button v-on:click="icon = 'map'" class="filter-btn search-bar-item"></button>
       </div>
-      <div class="filter-container">
+            <div class="filter-container">
           <div class="filterbutton"></div>
           <div class="stars"></div>
           <div class="sort"></div>
       </div>
+      <LocationList/>
+    </div>
     <LocationMap/>
   </div>
 </template>
 
 <script>
 import LocationMap from '@/components/LocationMap.vue'
+import LocationList from '@/components/LocationList.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'DiscoverView',
   components: {
-    LocationMap
+    'map': LocationMap,
+    'list': LocationList
+  },
+  data() {
+    return {
+      bak: 'list'
+    }
   },
   computed: {
     ...mapGetters(['locations'])
   }
 }
+
+
 </script>
 
 <style scoped>
@@ -42,23 +54,21 @@ export default {
     overflow: visible;
   }
   .location-container{
-    max-width: 600px;
+    max-width: 100%;
   }
 }
 .search-bar{
   width: 100%;
   max-width: 400px;
-  background: url(../assets/search.svg) center left  no-repeat, url(../assets/cursor.svg)center right no-repeat;
-  background-size: 25px, 14px;
-  background-origin: content-box;
+  background: url(../assets/search.svg) top left  no-repeat;
   background-color: #C2C5CC;
 }
 
 
 .filter-btn{
   margin-right: 0 !important;
-  background: url(../assets/list.svg) top left no-repeat;
-  filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg) brightness(98%) contrast(105%);
+  background: url(../assets/map.svg) top left no-repeat;
+  filter: $filter;
 }
 
 .search-bar-item{
@@ -75,6 +85,9 @@ export default {
   margin-bottom: 30px;
 }
 
+.filter-container{
+  display: flex;
+}
 .discover-view{
   display: flex;
   overflow: hidden;
@@ -83,22 +96,22 @@ export default {
 }
 
 .location-container{
-  margin-right: 0.5em;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .map-container{
+  width: 100%;
   height: 100%;
   margin-left: 0.5em;
   border-radius: 0.5em;
 }
 
-.filter-container{
-  display: flex;
+.location-list-container{
+  margin-top: 0.5em;
+  height: 100%;
 }
-
 .filterbutton{
     width: 30px;
     height: 30px;
@@ -119,13 +132,8 @@ export default {
     margin-right: 20px;
     background: url(../assets/sort.svg) top right no-repeat;
 }
-
-.location-list-container{
-  margin-top: 0.5em;
-  height: 100%;
-}
 select{
   background-color: #C2C5CC;
-  color: #001334;
+  color: $primary;
 }
 </style>
