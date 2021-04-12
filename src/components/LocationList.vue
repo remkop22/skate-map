@@ -32,22 +32,18 @@ export default {
 
 <style scoped>
 .location-card{
+  background-color: #C2C5CC;
   width: 100%;
-  height: 150px;
+  height: 110px;
   display: flex;
-  border-radius: 0.5em;
-  border: 1px solid #dddddd;
-  margin-bottom: 0.5em;
+  border-radius: 32px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .location-card-selected{
-  background: lightgray;
-}
-
-.location-card:hover{
-  border: 1px solid #666666;
+  background: #C2C5CC;
 }
 
 .properties-container{
@@ -58,16 +54,18 @@ export default {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  padding: 1em;
+  padding: 6px;
+  font-weight: 500;
 }
 
 .properties h3, p{
-  margin: 0.2em 0;
+  margin: 10px 40px 0px 0px;
 }
 
 .properties p{
-  color: darkgray;
-  font-size: 0.9em;
+  color: #1D3557;
+  font-weight: 300;
+  font-size: 11pt;
 }
 
 .picture-container{

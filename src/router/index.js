@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import DiscoverView from '../views/DiscoverView.vue'
-import FeedView from '../views/FeedView.vue'
 
 Vue.use(VueRouter)
 
@@ -11,11 +10,6 @@ const routes = [
     alias: '/',
     name: 'DiscoverView',
     component: DiscoverView
-  },
-  {
-    path: '/feed',
-    name: 'FeedView',
-    component: FeedView
   }
 ]
 
