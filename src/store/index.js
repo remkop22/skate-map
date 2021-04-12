@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    mapMode: true,
     locations: [
         {
           name: 'Utrecht Jaarbeurs',
@@ -64,11 +65,13 @@ export default new Vuex.Store({
     },
     userLocation: (state) => state.userLocation,
     selectedLocationId: (state) => state.selectedLocationId,
-    selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId)
+    selectedLocation: (state) => state.locations.find(l => l.id === state.selectedLocationId),
+    mapMode: (state) => state.mapMode
   },
   mutations: {
     setUserLocation: (state, location) => state.userLocation = location,
-    setSelectedLocationId: (state, id) => state.selectedLocationId = id
+    setSelectedLocationId: (state, id) => state.selectedLocationId = id,
+    setMapMode: (state, mode) => state.mapMode = mode
   },
   actions: {
   },

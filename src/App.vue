@@ -11,9 +11,11 @@ import Nav from '@/components/Nav.vue'
 export default {
   name: 'App',
   components: {
-    Nav
+    Nav,
   }
 }
+
+
 </script>
 
 <style lang="scss">
