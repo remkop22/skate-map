@@ -20,14 +20,11 @@ export default {
     LocationMap,
     LocationList,
     Search
-  },
+  }, 
   computed: {
-    ...mapGetters(['locations', 'mapMode'])
+    ...mapGetters('discover' ,['mapMode'])
   }
 }
-
-
-
 </script>
 
 <style scoped>

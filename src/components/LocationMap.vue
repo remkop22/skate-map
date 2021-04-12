@@ -18,7 +18,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setUserLocation', 'setSelectedLocationId']),
+    ...mapMutations('discover', ['setUserLocation', 'setSelectedLocationId']),
     setupLeaflet: function(){
       this.map = Leaflet.map("map-container").setView(this.center, 6.8)
       this.markers = Leaflet.markerClusterGroup()
@@ -29,6 +29,7 @@ export default {
       this.map.addLayer(this.markers)
     },
     updateMarkers: function(){
+      this.markers.clearLayers()
       this.locations.forEach(l => this.markers.addLayer(Leaflet.marker([l.coords.latitude, l.coords.longitude]).on('click', () => this.setSelectedLocationId(l.id))))
     },
     askUserLocation: function(){
@@ -36,7 +37,7 @@ export default {
         navigator.geolocation.getCurrentPosition(this.setUserLocation)
       }
     },
-    moveToLocation: function(location, zoom = 10){
+    moveToLocation: function(location, zoom = 9){
       if(zoom == undefined){
         this.map.setView([location.coords.latitude, location.coords.longitude])
       }else{
@@ -50,7 +51,7 @@ export default {
     this.updateMarkers()
   },
   computed: {
-    ...mapGetters(['userLocation', 'locations', 'selectedLocation', 'selectedLocationId'])
+    ...mapGetters('discover', ['userLocation', 'locations', 'selectedLocation', 'selectedLocationId'])
   },
   watch: {
     userLocation(newVal){
@@ -64,6 +65,9 @@ export default {
       }else{
         this.moveToLocation(newVal, undefined)
       }
+    },
+    locations(){
+      this.updateMarkers()
     }
   }
 }

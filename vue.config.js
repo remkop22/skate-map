@@ -4,5 +4,13 @@ module.exports = {
       preProcessor: 'scss',
       patterns: []
     }
+  },
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'https://remoris-skate-map.herokuapp.com',
+        changeOrigin: true
+      }
+    }
   }
 }

@@ -21,10 +21,10 @@ import {mapGetters, mapMutations} from 'vuex'
 export default {
   name: 'LocationList',
   methods: {
-    ...mapMutations(['setSelectedLocationId'])
+    ...mapMutations('discover', ['setSelectedLocationId'])
   },
   computed: {
-    ...mapGetters(['locations', 'selectedLocationId'])
+    ...mapGetters('discover', ['locations', 'selectedLocationId'])
   }
 }
 </script>
