@@ -1,23 +1,33 @@
 
 import axios from 'axios'
 
+const base = '/api/v1/locations'
+
 export default {
 
-  getLocations(query = undefined, sort = undefined, userLocation = undefined){
+  getLocations: async (query, sort, filters, userLocation) => {
     let params = {}
-   
-    query ? params['q'] = query : undefined
-    sort ? params['sort'] = sort : undefined
+    
+    if(query) params['q'] = query;
+    if(sort) params['sort'] = sort;
+    
     if(userLocation && sort == 'distance'){
-      params['latitude'] = userLocation.latitude
-      params['longitude'] = userLocation.longitude
+      params['latitude'] = userLocation.latitude;
+      params['longitude'] = userLocation.longitude;
     }
 
-    return new Promise((resolve, reject) => 
-      axios.get('/api/v1/locations', { params })
-      .then(res => resolve(res.data.locations))
-      .catch(err => reject(err))
-    )
-  }
+    if(filters !== undefined && filters.length > 0){
+      params['filter'] = filters
+    }
+
+    return axios.get(base, { params })
+      .then(res => res.data.locations)
+  },
+
+  getTags: async () => axios.get(base + '/tags')
+    .then(res => res.data.tags),
+
+  getObjects: async () => axios.get(base + '/objects')
+    .then(res => res.data.objects)
 
 }
