@@ -3,9 +3,13 @@ import router from "./router";
 import store from "./store";
 import Vue from "vue";
 import VueAnime from "vue-animejs";
+import vSelect from "vue-select";
+import VueLottiePlayer from "vue-lottie-player";
 Vue.use(VueAnime);
 
-import VueLottiePlayer from "vue-lottie-player";
+Vue.use(vSelect);
+Vue.component("v-select", vSelect);
+
 Vue.use(VueLottiePlayer);
 
 import Leaflet from "leaflet";

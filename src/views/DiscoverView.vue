@@ -3,8 +3,8 @@
     <div class="location-container">
       <Search />
       <LocationList v-if="!mapMode || !isMobile" />
-      <LocationMap v-if="mapMode || !isMobile" />
     </div>
+    <LocationMap v-if="mapMode || !isMobile" />
   </div>
 </template>
 
@@ -37,6 +37,7 @@ export default {
   }
   .location-container {
     max-width: 100%;
+    height: unset !important;
   }
 }
 

@@ -22,6 +22,7 @@
     "vue-lottie": "^0.2.1",
     "vue-lottie-player": "^0.1.9",
     "vue-router": "^3.2.0",
+    "vue-select": "^3.11.2",
     "vue2": "^1.0.0",
     "vuex": "^3.4.0"
   },
