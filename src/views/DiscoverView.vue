@@ -1,61 +1,67 @@
 <template>
   <div class="discover-view">
     <div class="location-container">
-      <Search/>
-      <LocationList v-if="!mapMode" />
+      <Search />
+      <LocationList v-if="!mapMode || !isMobile" />
+      <LocationMap v-if="mapMode || !isMobile" />
     </div>
-    <LocationMap v-if="mapMode" />
   </div>
 </template>
 
 <script>
-import LocationMap from '@/components/LocationMap.vue'
-import LocationList from '@/components/LocationList.vue'
-import Search from '@/components/Search.vue'
-import { mapGetters } from 'vuex'
+import LocationMap from "@/components/LocationMap.vue";
+import LocationList from "@/components/LocationList.vue";
+import Search from "@/components/Search.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'DiscoverView',
+  name: "DiscoverView",
   components: {
     LocationMap,
     LocationList,
-    Search
-  }, 
+    Search,
+  },
   computed: {
-    ...mapGetters('discover' ,['mapMode'])
-  }
-}
+    ...mapGetters("discover", ["mapMode"]),
+    ...mapGetters(["isMobile"]),
+  },
+};
 </script>
 
 <style scoped>
-
-@media (max-width: 900px){
-  .discover-view{
+@media (max-width: 900px) {
+  .discover-view {
     flex-direction: column;
     align-items: stretch;
     overflow: visible;
   }
-  .location-container{
+  .location-container {
     max-width: 100%;
   }
 }
-.discover-view{
+
+.discover-view {
   display: flex;
   overflow: hidden;
   height: 100%;
   padding: 1em;
 }
 
-.location-container{
+.location-container {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.map-container{
+.location-list-container {
+  padding: 0 2em 2em 2em;
+}
+
+.map-container {
   width: 100%;
   height: 100%;
   margin-left: 0.5em;
+  margin-top: 0.5em;
   border-radius: 0.5em;
 }
 </style>

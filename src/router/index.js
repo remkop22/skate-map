@@ -1,22 +1,22 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import DiscoverView from '../views/DiscoverView.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import DiscoverView from "../views/DiscoverView.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/discover',
-    alias: '/',
-    name: 'DiscoverView',
-    component: DiscoverView
-  }
-]
+    path: "/discover",
+    alias: "/",
+    name: "DiscoverView",
+    component: DiscoverView,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
