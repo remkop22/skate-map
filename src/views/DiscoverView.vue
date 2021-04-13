@@ -54,7 +54,7 @@ export default {
 }
 
 .location-list-container {
-  padding: 0 2em 2em 2em;
+  padding: 0 0.6em 0 0.6em;
 }
 
 .map-container {

@@ -22,7 +22,12 @@
     <div class="filter-container">
       <div class="filterbutton"></div>
       <div class="stars"></div>
-      <div class="sort"></div>
+      <select class="sort" v-model="sort" @change="searchSubmit">
+        <p>Sort by</p>
+        <option value="distance">Nearby</option>
+        <option value="popularity">Popular</option>
+        <option value="rating">Rating</option>
+      </select>
     </div>
   </div>
 </template>
@@ -73,26 +78,29 @@ export default {
   flex-direction: column;
 }
 
-.search-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
+.search-container,
 .filter-container {
   display: flex;
   justify-content: space-between;
-  margin: 15px;
+  margin: 0 1em 1.4em 1em;
+}
+
+.filter-container {
+  margin: 0 2em 0 2em;
 }
 
 .search-bar {
   width: 100%;
   max-width: 80%;
-  background: url(../assets/search.svg) top left no-repeat;
-  background-size: 25px;
+  background: url(../assets/search.svg) top left no-repeat,
+    url(../assets/cursor.svg) center right 10px no-repeat;
+  background-size: 25px, 12px;
   background-color: #c2c5cc;
   outline: none;
+}
+
+input:focus {
+  background-image: none;
 }
 
 .filter-btn {
@@ -103,7 +111,8 @@ export default {
   outline: none;
 }
 
-.search-bar-item {
+.search-bar-item,
+.sort {
   margin-right: 0.2em;
   border: none;
   padding: 0.3em 1em;
@@ -122,12 +131,12 @@ export default {
 }
 
 .switch-btn-list {
-  background: url(../assets/map.svg) no-repeat;
+  background: url(../assets/map.svg) bottom no-repeat;
   height: 24px;
 }
 
 .switch-btn-map {
-  background: url(../assets/list.svg) no-repeat;
+  background: url(../assets/list.svg) bottom no-repeat;
   height: 24px;
 }
 
@@ -151,10 +160,16 @@ export default {
   width: 100px;
   height: 30px;
   padding: 0.3em 1em;
-  background: url(../assets/sort.svg) top right no-repeat;
+  font-size: 0.9rem;
+  text-align: center;
+  background: url(../assets/down.svg) center right 10px no-repeat;
 }
 select {
   background-color: #c2c5cc;
   color: #001334;
+}
+
+option {
+  outline: none;
 }
 </style>
