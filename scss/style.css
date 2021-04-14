@@ -1,0 +1,129 @@
+
+.search-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.filterbutton {
+	align-self: center;
+}
+.search-container,
+  .filter-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 1em 1.4em 1em;
+	height: 30px;
+}
+.filter-container {
+	padding-left: 15px;
+}
+.options {
+	max-width: 20px;
+	min-height: 40px;
+}
+.fade-enter-active,
+  .fade-leave-active {
+	transition: opacity 0.5s ease-out;
+}
+.fade-enter-from,
+  .fade-leave-to {
+	opacity: 0;
+}
+.search-bar {
+	display: flex;
+	outline: none;
+	background: url(../src/assets/search.svg) center left no-repeat,
+      url(../src/assets/cursor.svg) center right 10px no-repeat;
+	background-color: #c2c5cc;
+	background-size: 1.7rem, 0.9rem;
+	width: 100%;
+}
+.slidecontainer {
+	width: 50%;
+}
+.stars {
+	position: sticky;
+}
+
+.starssort {
+	display: flex;
+	justify-content: flex-end;
+	min-width: 35%;
+}
+input:focus {
+	background-image: none;
+}
+.filter-btn {
+	outline: none;
+	filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg)
+      brightness(98%) contrast(105%);
+}
+.v-select {
+	outline: none;
+}
+.search-bar-item,
+  .sort {
+	margin: 0 0.2em 0 0.3em;
+	outline: none;
+	border: none;
+	border-radius: 1rem;
+	min-width: 40%;
+	color: $secondary;
+	font-size: 1rem;
+	appearance: none;
+}
+
+  .sort .vs__dropdown-toggle,
+  .sort .vs__dropdown-menu {
+	outline: none;
+	border: none;
+	background: $primary;
+	min-width: 7rem;
+}
+
+.sort .vs__search::placeholder {
+    text-align: right;
+    color: $secondary;
+}
+
+.sort .vs__selected {
+	color: $secondary;
+}
+.sort .vs__search {
+	outline: none;
+	color: #001334;
+}
+.sort .vs__actions {
+	color: red;
+}
+.sort .vs__dropdown-option--highlight {
+	background-color: $tertiary;
+}
+
+.sort .vs__selected-options {
+    max-height: 2rem;
+    text-align: right;
+}
+.switch-btn {
+	align-self: center;
+	margin: 0 0.2rem 0 0.2rem;
+	outline: none;
+	border: none;
+	appearance: none;
+}
+.switch-btn-list {
+	height: 76%;
+}
+.switch-btn-map {
+	height: 80%;
+}
+.location-list-container {
+	margin-top: 0.5em;
+	height: 100%;
+}
+select {
+	background-color: #c2c5cc;
+	color: #001334;
+}
+option {
+	outline: none;
+}
