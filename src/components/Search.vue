@@ -20,7 +20,10 @@
     <div class="filter-container">
       <img class="filterbutton" src="@/assets/settings.svg" height="80%" />
       <div class="starssort">
-        <img class="stars" src="@/assets/stars.svg" height="80%" />
+        <div class="slidecontainer">
+          <Slider v-model="value" class="slider" />
+        </div>
+        <!-- <img class="stars" src="@/assets/stars.svg" height="80%" /> -->
         <v-select
           class="sort"
           :options="options"
@@ -35,12 +38,17 @@
 </template>
 
 <script>
+import Slider from "@vueform/slider/dist/slider.vue2.js";
 import { mapMutations, mapGetters, mapActions } from "vuex";
 import "vue-select/dist/vue-select.css";
 export default {
+  components: {
+    Slider,
+  },
   name: "Search",
   data() {
     return {
+      value: 20,
       query: "",
       sort: "",
       filters: [],
@@ -76,11 +84,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "vue-select/src/scss/vue-select.scss";
 @import "../../scss/variables.scss";
+@import "vue-select/src/scss/vue-select.scss";
 
 .search-wrapper {
-  justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
@@ -91,6 +98,9 @@ export default {
   justify-content: space-between;
   margin: 0 1em 1.4em 1em;
   height: 30px;
+}
+.filter-container {
+  padding-left: 15px;
 }
 
 .options {
@@ -107,6 +117,42 @@ export default {
   background-color: #c2c5cc;
   outline: none;
   padding-left: 12px;
+}
+
+.slidecontainer {
+  width: 50%;
+}
+
+.stars {
+  position: sticky;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background: $tertiary;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 0.8;
+}
+
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  outline: none;
+  background: $secondary;
+  cursor: pointer;
 }
 
 .starssort {
@@ -138,21 +184,32 @@ input:focus {
   outline: none;
   min-width: 40%;
   font-size: 0.9rem;
-  text-align: center;
+  color: $secondary;
 }
 
-.sort .vs__dropdown-menu,
-.sort .vs__dropdown {
+.sort .vs__search::placeholder,
+.sort .vs__dropdown-toggle,
+.sort .vs__dropdown-menu {
   background: $primary;
   border: none;
-  color: $secondary;
   outline: none;
   min-width: 90px;
 }
 
-.sortc .vs__dropdown-menu:focus {
-  background-color: red;
+.sort .vs__selected {
+  color: $secondary;
+}
+
+.sort .vs__search {
+  color: #001334;
+  outline: none;
+}
+
+.sort .vs__actions {
   color: red;
+}
+.sort .vs__dropdown-option--highlight {
+  background-color: $tertiary;
 }
 
 .switch-btn {

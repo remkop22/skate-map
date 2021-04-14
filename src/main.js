@@ -5,6 +5,9 @@ import Vue from "vue";
 import VueAnime from "vue-animejs";
 import vSelect from "vue-select";
 import VueLottiePlayer from "vue-lottie-player";
+import VueCompositionAPI from "@vue/composition-api";
+Vue.use(VueCompositionAPI);
+
 Vue.use(VueAnime);
 
 Vue.use(vSelect);
