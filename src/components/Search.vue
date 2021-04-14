@@ -22,8 +22,8 @@
       <div class="starssort">
         <img class="stars" src="@/assets/stars.svg" height="80%" />
         <v-select
-          :options="options"
           class="sort"
+          :options="options"
           v-model="sort"
           placeholder="Sort by"
           :searchable="false"
@@ -75,8 +75,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "vue-select/src/scss/vue-select.scss";
+@import "../../scss/variables.scss";
 
 .search-wrapper {
   justify-content: space-between;
@@ -87,22 +88,31 @@ export default {
 .search-container,
 .filter-container {
   display: flex;
+  justify-content: space-between;
   margin: 0 1em 1.4em 1em;
   height: 30px;
 }
 
+.options {
+  min-height: 40px;
+  max-width: 20px;
+}
+
 .search-bar {
+  display: flex;
   width: 100%;
-  background: url(../assets/search.svg) top left no-repeat,
+  background: url(../assets/search.svg) center left no-repeat,
     url(../assets/cursor.svg) center right 10px no-repeat;
-  background-size: 25px, 12px;
+  background-size: 28px, 12px;
   background-color: #c2c5cc;
   outline: none;
+  padding-left: 12px;
 }
 
 .starssort {
   display: flex;
   justify-content: flex-end;
+  min-width: 35%;
 }
 
 input:focus {
@@ -126,7 +136,23 @@ input:focus {
   border-radius: 12px;
   appearance: none;
   outline: none;
-  min-width: 30%;
+  min-width: 40%;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.sort .vs__dropdown-menu,
+.sort .vs__dropdown {
+  background: $primary;
+  border: none;
+  color: $secondary;
+  outline: none;
+  min-width: 90px;
+}
+
+.sortc .vs__dropdown-menu:focus {
+  background-color: red;
+  color: red;
 }
 
 .switch-btn {
@@ -148,11 +174,6 @@ input:focus {
 .location-list-container {
   margin-top: 0.5em;
   height: 100%;
-}
-
-.sort {
-  font-size: 0.9rem;
-  text-align: center;
 }
 
 select {
