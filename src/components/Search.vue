@@ -7,18 +7,20 @@
         v-model="query"
         @input="searchSubmit"
       />
-      <img
-        v-if="isMobile"
-        :src="
-          mapMode ? require('@/assets/map.svg') : require('@/assets/list.svg')
-        "
-        class="switch-btn"
-        :class="{ 'switch-btn-map': mapMode, 'switch-btn-list': !mapMode }"
-        v-on:click="setMapMode(!mapMode)"
-      />
+      <transition name="fade">
+        <img
+          v-if="isMobile"
+          :src="
+            mapMode ? require('@/assets/map.svg') : require('@/assets/list.svg')
+          "
+          class="switch-btn"
+          :class="{ 'switch-btn-map': mapMode, 'switch-btn-list': !mapMode }"
+          v-on:click="setMapMode(!mapMode)"
+        />
+      </transition>
     </div>
     <div class="filter-container">
-      <img class="filterbutton" src="@/assets/settings.svg" height="80%" />
+      <img class="filterbutton" src="@/assets/settings.svg" height="70%" />
       <div class="starssort">
         <div class="slidecontainer">
           <Slider v-model="value" class="slider" />
@@ -92,6 +94,10 @@ export default {
   flex-direction: column;
 }
 
+.filterbutton {
+  align-self: center;
+}
+
 .search-container,
 .filter-container {
   display: flex;
@@ -106,6 +112,16 @@ export default {
 .options {
   min-height: 40px;
   max-width: 20px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .search-bar {
@@ -166,7 +182,6 @@ input:focus {
 }
 
 .filter-btn {
-  margin-right: 0 !important;
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg)
     brightness(98%) contrast(105%);
   outline: none;
@@ -218,14 +233,15 @@ input:focus {
   border-radius: 7px;
   appearance: none;
   outline: none;
+  align-self: center;
 }
 
 .switch-btn-list {
-  height: 24px;
+  height: 76%;
 }
 
 .switch-btn-map {
-  height: 24px;
+  height: 80%;
 }
 
 .location-list-container {
