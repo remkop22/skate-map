@@ -5,6 +5,7 @@ module.exports = {
       patterns: [],
     },
   },
+
   devServer: {
     proxy: {
       "^/api": {
@@ -13,4 +14,6 @@ module.exports = {
       },
     },
   },
+
+  transpileDependencies: ["vuetify"],
 };

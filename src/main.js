@@ -16,6 +16,7 @@ Vue.component("v-select", vSelect);
 Vue.use(VueLottiePlayer);
 
 import Leaflet from "leaflet";
+import vuetify from "./plugins/vuetify";
 delete Leaflet.Icon.Default.prototype._getIconUrl;
 Leaflet.Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
@@ -28,5 +29,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  vuetify,
   render: (h) => h(App),
 }).$mount("#app");
