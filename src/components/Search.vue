@@ -41,7 +41,11 @@
         <!-- <img class="stars" src="@/assets/stars.svg" height="80%" /> -->
         <v-select
           class="sort"
-          :options="options"
+          :items="options"
+          dense
+          solo
+          menu-props="auto"
+          hide-details
           v-model="sort"
           placeholder="Sort by"
           :searchable="false"
@@ -60,7 +64,7 @@ export default {
   data() {
     return {
       active: { color: "#001334" },
-      track: { color: "grey" },
+      track: { color: "#C2C5CC" },
       thumb: { color: "#001334" },
       satisfactionEmojis: ["😭", "😢", "😞", "😄", "😍"],
       value: 5,
@@ -149,6 +153,7 @@ export default {
 .starssort {
   display: flex;
   justify-content: flex-end;
+  max-width: 15rem;
 }
 input:focus {
   background-image: none;
@@ -171,38 +176,6 @@ input:focus {
   appearance: none;
 }
 
-.sort {
-  min-width: 5.8rem;
-  text-align: left;
-}
-
-.sort .vs__dropdown-toggle,
-.sort .vs__dropdown-menu {
-  outline: none;
-  border: none;
-  background: $primary;
-  padding: none;
-  text-align: left;
-}
-
-.sort .vs__search::placeholder,
-.sort .vs__search,
-.sort .vs__selected {
-  color: $secondary;
-  outline: none;
-}
-
-.sort .vs__dropdown-option--highlight {
-  background-color: $tertiary;
-}
-
-.sort .vs__selected-options {
-  max-height: 2rem;
-}
-.v-slider {
-  color: grey;
-}
-
 .switch-btn {
   align-self: center;
   margin: 0 0.2rem 0 0.2rem;
@@ -223,41 +196,42 @@ input:focus {
 .slidecontainer {
   display: flex;
   flex-direction: column;
-  width: 5rem;
-  z-index: 1000;
+  width: 10rem;
+  margin: 0 0.6rem 0 0;
+  z-index: 1;
 }
 
-.slider {
-  justify-content: center;
-  transition: opacity 0.2s;
-  opacity: 1;
-  border-radius: 1rem;
-  background: $tertiary;
-  width: 100%;
-  height: 0.4rem;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-transition: 0.2s;
-  position: relative;
-}
+// .slider {
+//   justify-content: center;
+//   transition: opacity 0.2s;
+//   opacity: 1;
+//   border-radius: 1rem;
+//   background: $tertiary;
+//   width: 100%;
+//   height: 0.4rem;
+//   -webkit-appearance: none;
+//   appearance: none;
+//   -webkit-transition: 0.2s;
+//   position: relative;
+// }
 
-.slider::-webkit-slider-thumb,
-.slider::-moz-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: $secondary;
-  border-radius: 50%;
-  border: none;
-  height: 0.9rem;
-  width: 0.9rem;
-}
+// .slider::-webkit-slider-thumb,
+// .slider::-moz-range-thumb {
+//   -webkit-appearance: none;
+//   appearance: none;
+//   background-color: $secondary;
+//   border-radius: 50%;
+//   border: none;
+//   height: 0.9rem;
+//   width: 0.9rem;
+// }
 
-.rangeValue {
-  align-items: center;
-  line-height: 0.95rem;
-}
+// .rangeValue {
+//   align-items: center;
+//   line-height: 0.95rem;
+// }
 
-.rangeValue::before {
-  align-items: center;
-}
+// .rangeValue::before {
+//   align-items: center;
+// }
 </style>
