@@ -20,10 +20,23 @@
       </transition>
     </div>
     <div class="filter-container">
-      <img class="filterbutton" src="@/assets/settings.svg" height="70%" />
+      <img class="filterbutton" src="@/assets/settings.svg" height="24rem" />
       <div class="starssort">
         <div class="slidecontainer">
-          <Slider v-model="value" class="slider" />
+          <span class="rangeValue">{{ value }}</span>
+          <!-- <v-slider
+            v-model="slider"
+            :thumb-size="24"
+            type="range"
+            class="slider"
+            min="1"
+            max="5"
+          /> -->
+          <v-slider v-model="slider" :thumb-size="24" thumb-label="always">
+            <template v-slot:thumb-label="{ value }">
+              {{ satisfactionEmojis[Math.min(Math.floor(value / 10), 9)] }}
+            </template>
+          </v-slider>
         </div>
         <!-- <img class="stars" src="@/assets/stars.svg" height="80%" /> -->
         <v-select
@@ -40,17 +53,15 @@
 </template>
 
 <script>
-import Slider from "@vueform/slider/dist/slider.vue2.js";
 import { mapMutations, mapGetters, mapActions } from "vuex";
 import "vue-select/dist/vue-select.css";
 export default {
-  components: {
-    Slider,
-  },
   name: "Search",
   data() {
     return {
-      value: 20,
+      slider: 5,
+      satisfactionEmojis: ["😭", "😢", "😄", "😍"],
+      value: 1,
       query: "",
       sort: "",
       filters: [],
@@ -66,6 +77,13 @@ export default {
         sort: this.sort.toLowerCase(),
         filters: this.filters,
       }).catch((err) => console.error(err));
+    },
+    warning: function () {
+      if (this.value > 4) {
+        return {
+          color: "red",
+        };
+      }
     },
   },
   computed: {
@@ -102,7 +120,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin: 0 1em 1.4em 1em;
-  height: 30px;
+  height: 1.7rem;
 }
 .filter-container {
   padding-left: 15px;
@@ -127,9 +145,7 @@ export default {
   background-color: #c2c5cc;
   background-size: 1.7rem, 0.9rem;
   width: 100%;
-}
-.slidecontainer {
-  width: 50%;
+  padding-left: 0.9rem;
 }
 .stars {
   position: sticky;
@@ -138,7 +154,6 @@ export default {
 .starssort {
   display: flex;
   justify-content: flex-end;
-  min-width: 35%;
 }
 input:focus {
   background-image: none;
@@ -148,19 +163,22 @@ input:focus {
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg)
     brightness(98%) contrast(105%);
 }
-.v-select {
-  outline: none;
-}
+
 .search-bar-item,
 .sort {
   margin: 0 0.2em 0 0.3em;
   outline: none;
   border: none;
   border-radius: 1rem;
-  min-width: 40%;
+  min-width: 4rem;
   color: $secondary;
   font-size: 1rem;
   appearance: none;
+}
+
+.sort {
+  min-width: 5.8rem;
+  text-align: left;
 }
 
 .sort .vs__dropdown-toggle,
@@ -168,31 +186,22 @@ input:focus {
   outline: none;
   border: none;
   background: $primary;
-  min-width: 7rem;
 }
 
-.sort .vs__search::placeholder {
-  text-align: right;
-  color: $secondary;
-}
-
+.sort .vs__search::placeholder,
+.sort .vs__search,
 .sort .vs__selected {
+  text-align: left;
   color: $secondary;
-}
-.sort .vs__search {
   outline: none;
-  color: #001334;
 }
-.sort .vs__actions {
-  color: red;
-}
+
 .sort .vs__dropdown-option--highlight {
   background-color: $tertiary;
 }
 
 .sort .vs__selected-options {
   max-height: 2rem;
-  text-align: right;
 }
 .switch-btn {
   align-self: center;
@@ -201,33 +210,53 @@ input:focus {
   border: none;
   appearance: none;
 }
-.switch-btn-list {
-  height: 76%;
-}
+.switch-btn-list,
 .switch-btn-map {
-  height: 80%;
+  height: 76%, 80%;
 }
+
 .location-list-container {
   margin-top: 0.5em;
   height: 100%;
 }
-select {
-  background-color: #c2c5cc;
-  color: #001334;
-}
-option {
-  outline: none;
+
+.slidecontainer {
+  display: flex;
+  flex-direction: column;
+  width: 5rem;
 }
 
 .slider {
+  justify-content: center;
   transition: opacity 0.2s;
   opacity: 1;
   border-radius: 1rem;
   background: $tertiary;
   width: 100%;
-  height: 0.3rem;
+  height: 0.4rem;
   -webkit-appearance: none;
   appearance: none;
   -webkit-transition: 0.2s;
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $secondary;
+  border-radius: 50%;
+  border: none;
+  height: 0.9rem;
+  width: 0.9rem;
+}
+
+.rangeValue {
+  align-items: center;
+  line-height: 0.95rem;
+}
+
+.rangeValue::before {
+  align-items: center;
 }
 </style>
