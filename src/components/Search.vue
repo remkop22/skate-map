@@ -23,18 +23,18 @@
       <img class="filterbutton" src="@/assets/settings.svg" height="24rem" />
       <div class="starssort">
         <div class="slidecontainer">
-          <span class="rangeValue">{{ value }}</span>
-          <!-- <v-slider
-            v-model="slider"
-            :thumb-size="24"
-            type="range"
-            class="slider"
-            min="1"
-            max="5"
-          /> -->
-          <v-slider v-model="slider" :thumb-size="24" thumb-label="always">
+          <v-slider
+            step="1"
+            :color="active.color"
+            :thumb-size="10"
+            thumb-label="always"
+            :max="5"
+            :min="1"
+            :track-color="track.color"
+            :thumb-color="thumb.color"
+          >
             <template v-slot:thumb-label="{ value }">
-              {{ satisfactionEmojis[Math.min(Math.floor(value / 10), 9)] }}
+              {{ satisfactionEmojis[Math.min(Math.floor(value / 1), 4)] }}
             </template>
           </v-slider>
         </div>
@@ -59,9 +59,11 @@ export default {
   name: "Search",
   data() {
     return {
-      slider: 5,
-      satisfactionEmojis: ["😭", "😢", "😄", "😍"],
-      value: 1,
+      active: { color: "#001334" },
+      track: { color: "grey" },
+      thumb: { color: "#001334" },
+      satisfactionEmojis: ["😭", "😢", "😞", "😄", "😍"],
+      value: 5,
       query: "",
       sort: "",
       filters: [],
@@ -77,13 +79,6 @@ export default {
         sort: this.sort.toLowerCase(),
         filters: this.filters,
       }).catch((err) => console.error(err));
-    },
-    warning: function () {
-      if (this.value > 4) {
-        return {
-          color: "red",
-        };
-      }
     },
   },
   computed: {
@@ -186,12 +181,13 @@ input:focus {
   outline: none;
   border: none;
   background: $primary;
+  padding: none;
+  text-align: left;
 }
 
 .sort .vs__search::placeholder,
 .sort .vs__search,
 .sort .vs__selected {
-  text-align: left;
   color: $secondary;
   outline: none;
 }
@@ -203,6 +199,10 @@ input:focus {
 .sort .vs__selected-options {
   max-height: 2rem;
 }
+.v-slider {
+  color: grey;
+}
+
 .switch-btn {
   align-self: center;
   margin: 0 0.2rem 0 0.2rem;
@@ -224,6 +224,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   width: 5rem;
+  z-index: 1000;
 }
 
 .slider {
