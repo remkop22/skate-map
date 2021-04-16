@@ -1,5 +1,5 @@
 <template>
-  <div class="hamburger-menu"></div>
+  <div class="hamburger-menu" v-if="false"></div>
 </template>
 
 <script>
