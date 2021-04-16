@@ -1,10 +1,14 @@
 <template>
-  <div class="hamburger-menu" v-if="false"></div>
+  <div class="hamburger-menu" v-if="hamburgerActive"></div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "HamburgerMenu",
+  computed: {
+    ...mapGetters(["hamburgerActive"]),
+  },
 };
 </script>
 
