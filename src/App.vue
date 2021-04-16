@@ -3,7 +3,7 @@
     <HamburgerMenu />
     <div class="content-wrapper">
       <Nav />
-      <router-view />
+      <router-view @click.native="setHamburger(false)" />
     </div>
   </v-app>
 </template>
@@ -19,7 +19,7 @@ export default {
     HamburgerMenu,
   },
   methods: {
-    ...mapMutations(["setWindowSize"]),
+    ...mapMutations(["setWindowSize", "setHamburger"]),
     handleResize() {
       this.setWindowSize({
         innerWidth: window.innerWidth,

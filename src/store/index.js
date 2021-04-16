@@ -21,6 +21,7 @@ const mutations = {
   setWindowSize: (state, { innerWidth, innerHeight }) =>
     (state.windowSize = { innerWidth, innerHeight }),
   toggleHamburger: (state) => (state.hamburgerActive = !state.hamburgerActive),
+  setHamburger: (state, active) => (state.hamburgerActive = active),
 };
 
 export default new Vuex.Store({
