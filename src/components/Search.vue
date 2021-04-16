@@ -58,7 +58,7 @@
 
 <script>
 import { mapMutations, mapGetters, mapActions } from "vuex";
-import "vue-select/dist/vue-select.css";
+
 export default {
   name: "Search",
   data() {
@@ -104,7 +104,6 @@ export default {
 
 <style lang="scss">
 @import "../../scss/variables.scss";
-@import "vue-select/src/scss/vue-select.scss";
 // @import "../../scss/style.css";
 
 .search-wrapper {
