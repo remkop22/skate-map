@@ -29,7 +29,13 @@
   content: url(../assets/hamburger.svg);
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg)
     brightness(98%) contrast(105%);
+  -webkit-transition: all 0.5s;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
 }
+
 .hamburger2 {
   margin: 20px;
   max-width: 20px;

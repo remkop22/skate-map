@@ -26,7 +26,7 @@
           <v-slider
             step="1"
             :color="active.color"
-            :thumb-size="10"
+            :thumb-size="20"
             thumb-label="always"
             :max="5"
             :min="1"
@@ -46,7 +46,9 @@
           solo
           menu-props="auto"
           hide-details
+          append-icon="mdi-clear"
           v-model="sort"
+          clearable
           placeholder="Sort by"
           :searchable="false"
           @input="searchSubmit"
@@ -66,7 +68,7 @@ export default {
       active: { color: "#001334" },
       track: { color: "#C2C5CC" },
       thumb: { color: "#001334" },
-      satisfactionEmojis: ["😭", "😢", "😞", "😄", "😍"],
+      satisfactionEmojis: ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"],
       value: 5,
       query: "",
       sort: "",
@@ -106,6 +108,8 @@ export default {
 @import "../../scss/variables.scss";
 @import "vue-select/src/scss/vue-select.scss";
 // @import "../../scss/style.css";
+
+$slider-thumb-size: 0px;
 
 .search-wrapper {
   display: flex;
@@ -174,6 +178,9 @@ input:focus {
   color: $secondary;
   font-size: 1rem;
   appearance: none;
+}
+.slider .v-slider__thumb-label {
+  opacity: 0;
 }
 
 .switch-btn {
