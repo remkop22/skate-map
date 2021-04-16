@@ -1,7 +1,12 @@
 <template>
   <div class="nav">
     <div class="flex-group-left">
-      <img class="hamburger" src="../assets/hamburger.svg" />
+      <img
+        v-if="isMobile"
+        class="hamburger"
+        src="../assets/hamburger.svg"
+        @click="toggleHamburger()"
+      />
     </div>
     <div class="flex-group-center">
       <div class="nav-name">
@@ -23,7 +28,18 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import { mapGetters, mapMutations } from "vuex";
+export default {
+  name: "Nav",
+  methods: {
+    ...mapMutations(["toggleHamburger"]),
+  },
+  computed: {
+    ...mapGetters(["isMobile"]),
+  },
+};
+</script>
 
 <style scoped>
 .hamburger {

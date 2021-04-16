@@ -16,7 +16,7 @@ export default {
 @import "./scss/variables.scss";
 
 .hamburger-menu {
-  width: 50vw;
+  width: clamp(200px, 40vw, 80vw);
   height: 100%;
   z-index: 10;
   background: $primary;
