@@ -1,8 +1,10 @@
 <template>
   <v-app id="app">
     <HamburgerMenu />
-    <Nav />
-    <router-view />
+    <div class="content-wrapper">
+      <Nav />
+      <router-view />
+    </div>
   </v-app>
 </template>
 
@@ -54,9 +56,19 @@ body {
   text-align: center;
   background-color: $primary;
   color: $secondary;
+}
+
+.v-application--wrap {
+  display: flex;
+  flex-direction: row !important;
+  max-width: unset !important;
+}
+
+.content-wrapper {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 #nav {
