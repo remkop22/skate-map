@@ -1,14 +1,11 @@
-
 <template>
   <div></div>
 </template>
 
 <script>
 export default {
-  name: "HamburgerMenu"
-}
+  name: "HamburgerMenu",
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,5 +1,6 @@
 <template>
   <v-app id="app">
+    <HamburgerMenu />
     <Nav />
     <router-view />
   </v-app>
@@ -7,12 +8,13 @@
 
 <script>
 import Nav from "@/components/Nav.vue";
-
+import HamburgerMenu from "@/components/HamburgerMenu.vue";
 import { mapMutations } from "vuex";
 export default {
   name: "App",
   components: {
     Nav,
+    HamburgerMenu,
   },
   methods: {
     ...mapMutations(["setWindowSize"]),
