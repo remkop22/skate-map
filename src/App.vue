@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/tailwind.css";
 @import "./scss/variables.scss";
 @import "./scss/vue-select.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");

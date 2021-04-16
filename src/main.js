@@ -16,6 +16,7 @@ Vue.use(vSelect);
 Vue.use(VueLottiePlayer);
 
 import Leaflet from "leaflet";
+import "./assets/tailwind.css";
 delete Leaflet.Icon.Default.prototype._getIconUrl;
 Leaflet.Icon.Default.mergeOptions({
   iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
