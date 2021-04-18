@@ -51,8 +51,12 @@
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropbtn flex-row justify-content-center">
+          <button
+            src="../assets/sort1.svg"
+            class="dropbtn flex justify-content-center p-2 rounded-lg ml-4 whitespace-nowrap align-middle cursor-pointer font-bold"
+          >
             Sort by
+            <img src="../assets/sort1.svg" />
           </button>
           <div class="dropdown-content">
             <a href="#">{{ options["0"] }}</a>
@@ -117,19 +121,6 @@ export default {
 .dropbtn {
   background-color: $tertiary;
   color: $secondary;
-  padding: 0.4rem;
-  border: none;
-  border-radius: 1rem;
-  margin-left: 1rem;
-  height: 3rem;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.dropbtn:after {
-  content: url("../assets/sort1.svg");
-  margin-left: 0.5rem;
-  background-position: center center;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -144,7 +135,7 @@ export default {
   position: absolute;
   background-color: $tertiary;
   border-radius: 1rem;
-  // min-width: 7rem;
+  min-width: 8em;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 500;
 }
