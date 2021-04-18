@@ -58,10 +58,14 @@
             Sort by
             <img src="../assets/sort1.svg" />
           </button>
-          <div class="dropdown-content text-left">
-            <a href="#">{{ options["0"] }}</a>
+          <div class="dropdown-content sort text-left" @change="searchSubmit">
+            <option value="distance">{{ options["0"] }}</option>
             <a href="#">{{ options["1"] }}</a>
             <a href="#">{{ options["2"] }}</a>
+            <option>{{ options["3"] }}</option>
+            <option>{{ options["4"] }}</option>
+            <option value="difficulty">{{ options["5"] }}</option>
+            <!-- <option>{{ options[""] }}</option> -->
           </div>
         </div>
       </div>
@@ -80,7 +84,14 @@ export default {
       query: "",
       sort: "",
       filters: [],
-      options: ["Distance", "Popularity", "Rating"],
+      options: [
+        "Distance",
+        "Popularity",
+        "Rating",
+        "Size",
+        "Difficulty",
+        "Surface",
+      ],
     };
   },
   methods: {
@@ -133,23 +144,28 @@ export default {
   display: none;
   position: absolute;
   background-color: $primary;
-  min-width: 7em;
+  font-size: 0.8rem;
+  min-width: 7rem;
   opacity: 0.9;
   box-shadow: 0px 0.5rem 1rem 0px rgba(0, 0, 0, 0.2);
   z-index: 500;
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.dropdown-content a,
+.dropdown-content option {
   color: $secondary;
-  padding: 12px 16px;
+  padding: 0.6rem 0.9rem;
   text-decoration: none;
   display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+.dropdown-content a:hover,
+.dropdown-content option:hover {
   background-color: #e7e7e7;
+  cursor: pointer;
+  border-radius: 1rem;
 }
 
 /* Show the dropdown menu on hover */
@@ -181,6 +197,10 @@ export default {
 
 .slider-component .slidecontainer .slider:hover {
   opacity: 0.8;
+}
+
+.slider::-moz-range-progress {
+  background-color: $secondary;
 }
 
 .slider-component .slidecontainer .slider::-webkit-slider-thumb {
