@@ -50,10 +50,10 @@
             />
           </div>
         </div>
-        <div class="dropdown">
+        <div class="dropdown justify-self-center">
           <button
             src="../assets/sort1.svg"
-            class="dropbtn flex justify-content-center p-2 rounded-lg ml-4 whitespace-nowrap align-middle cursor-pointer font-bold"
+            class="dropbtn flex justify-content-center p-2-lg ml-4 whitespace-nowrap align-middle cursor-pointer font-bold"
           >
             Sort by
             <img src="../assets/sort1.svg" />
@@ -119,7 +119,6 @@ export default {
 @import "vue-select/src/scss/vue-select.scss";
 
 .dropbtn {
-  background-color: $tertiary;
   color: $secondary;
 }
 
@@ -133,10 +132,10 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: $tertiary;
-  border-radius: 1rem;
-  min-width: 8em;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: $primary;
+  min-width: 7em;
+  opacity: 0.9;
+  box-shadow: 0px 0.5rem 1rem 0px rgba(0, 0, 0, 0.2);
   z-index: 500;
 }
 
@@ -146,12 +145,11 @@ export default {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  border-radius: 1rem;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: $primary;
+  background-color: #e7e7e7;
 }
 
 /* Show the dropdown menu on hover */
