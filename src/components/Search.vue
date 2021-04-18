@@ -22,9 +22,23 @@
     <div class="filter-container">
       <img class="filterbutton" src="@/assets/settings.svg" height="24rem" />
       <div class="starssort">
-        <div class="slider-component">
-          <span> {{ this.currentValue }}</span>
-          <div class="slidecontainer">
+        <div class="slider-component justify-center justify-items-center w-20">
+          <div class="value justify-self-center flex mb-3">
+            <svg
+              class="items-center"
+              v-for="i in 5"
+              :key="i"
+              :class="i <= currentValue ? 'text-secondary' : 'text-tertiary'"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              />
+            </svg>
+          </div>
+          <div class="slidecontainer justify-self-center">
             <input
               ref="input"
               v-model="currentValue"
@@ -34,87 +48,16 @@
               class="slider"
               @input="onInput"
             />
-            <!-- <div class="relative inline-block text-left dropdown">
-            <span class="rounded-md shadow-sm"
-              ><button
-                class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded="true"
-                aria-controls="headlessui-menu-items-117"
-              >
-                <span>Options</span>
-                <svg
-                  class="w-5 h-5 ml-2 -mr-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg></button
-            ></span>
-            <div
-              class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95"
-            >
-              <div
-                class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
-                aria-labelledby="headlessui-menu-button-1"
-                id="headlessui-menu-items-117"
-                role="menu"
-              >
-                <div class="px-4 py-3">
-                  <p class="text-sm leading-5">Signed in as</p>
-                  <p
-                    class="text-sm font-medium leading-5 text-gray-900 truncate"
-                  >
-                    tom@example.com
-                  </p>
-                </div>
-                <div class="py-1">
-                  <a
-                    href="javascript:void(0)"
-                    tabindex="0"
-                    class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                    role="menuitem"
-                    >Account settings</a
-                  >
-                  <a
-                    href="javascript:void(0)"
-                    tabindex="1"
-                    class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                    role="menuitem"
-                    >Support</a
-                  >
-                  <span
-                    role="menuitem"
-                    tabindex="-1"
-                    class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
-                    aria-disabled="true"
-                    >New feature (soon)</span
-                  >
-                  <a
-                    href="javascript:void(0)"
-                    tabindex="2"
-                    class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                    role="menuitem"
-                    >License</a
-                  >
-                </div>
-                <div class="py-1">
-                  <a
-                    href="javascript:void(0)"
-                    tabindex="3"
-                    class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
-                    role="menuitem"
-                    >Sign out</a
-                  > -->
-            <!-- </div>
-              </div>
-            </div>
-          </div> -->
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn flex-row justify-content-center">
+            Sort by
+          </button>
+          <div class="dropdown-content">
+            <a href="#">{{ options["0"] }}</a>
+            <a href="#">{{ options["1"] }}</a>
+            <a href="#">{{ options["2"] }}</a>
           </div>
         </div>
       </div>
@@ -126,20 +69,6 @@
 import { mapMutations, mapGetters, mapActions } from "vuex";
 import "vue-select/dist/vue-select.css";
 export default {
-  props: {
-    value: {
-      type: Number,
-      required: true,
-    },
-    min: {
-      type: Number,
-      required: true,
-    },
-    max: {
-      type: Number,
-      required: true,
-    },
-  },
   name: "Search",
   data() {
     return {
@@ -184,52 +113,102 @@ export default {
 <style lang="scss">
 @import "../../scss/variables.scss";
 @import "vue-select/src/scss/vue-select.scss";
-// @import "../../scss/style.css";
 
-$slider-thumb-size: 0px;
+.dropbtn {
+  background-color: $tertiary;
+  color: $secondary;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  height: 3rem;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-.dropdown:focus-within .dropdown-menu {
+.dropbtn:after {
+  content: url("../assets/sort1.svg");
+  margin-left: 0.5rem;
+  background-position: center center;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $tertiary;
+  border-radius: 1rem;
+  // min-width: 7rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 500;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: $secondary;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 1rem;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: $primary;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  opacity: 0.9;
+}
+
+.slider::-webkit-slider-thumb .slider::-moz-range-thumb {
   opacity: 1;
-  transform: translate(0) scale(1);
-  visibility: visible;
+  border: 1rem;
 }
 
-.slider-component .slidecontainer {
-  width: 100%;
-}
-
-.slider-component .slidecontainer .slider {
+.slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 50%;
-  height: 4px;
+  height: 0.25rem;
   border-radius: 2px;
   background: $tertiary;
   outline: none;
-  opacity: 0.7;
+  opacity: 1;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
 
 .slider-component .slidecontainer .slider:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .slider-component .slidecontainer .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
   background: $secondary;
+  height: 0.7rem;
+  width: 0.7rem;
   cursor: pointer;
   border-radius: 50%;
 }
 
 .slider-component .slidecontainer .slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
   background: $secondary;
   cursor: pointer;
+  height: 0.7rem;
+  width: 0.7rem;
   border-radius: 50%;
 }
 
@@ -279,7 +258,6 @@ $slider-thumb-size: 0px;
 .starssort {
   display: flex;
   justify-content: flex-end;
-  max-width: 15rem;
 }
 input:focus {
   background-image: none;
@@ -325,42 +303,6 @@ input:focus {
 .slidecontainer {
   display: flex;
   flex-direction: column;
-  width: 10rem;
-  margin: 0 0.6rem 0 0;
   z-index: 1;
 }
-
-// .slider {
-//   justify-content: center;
-//   transition: opacity 0.2s;
-//   opacity: 1;
-//   border-radius: 1rem;
-//   background: $tertiary;
-//   width: 100%;
-//   height: 0.4rem;
-//   -webkit-appearance: none;
-//   appearance: none;
-//   -webkit-transition: 0.2s;
-//   position: relative;
-// }
-
-// .slider::-webkit-slider-thumb,
-// .slider::-moz-range-thumb {
-//   -webkit-appearance: none;
-//   appearance: none;
-//   background-color: $secondary;
-//   border-radius: 50%;
-//   border: none;
-//   height: 0.9rem;
-//   width: 0.9rem;
-// }
-
-// .rangeValue {
-//   align-items: center;
-//   line-height: 0.95rem;
-// }
-
-// .rangeValue::before {
-//   align-items: center;
-// }
 </style>
