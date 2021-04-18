@@ -21,7 +21,7 @@
     </div>
     <div class="filter-container">
       <img class="filterbutton" src="@/assets/settings.svg" height="24rem" />
-      <div class="starssort">
+      <div class="starssort flex items-end">
         <div class="slider-component justify-center justify-items-center w-20">
           <div class="value justify-self-center flex mb-3">
             <svg
@@ -58,7 +58,7 @@
             Sort by
             <img src="../assets/sort1.svg" />
           </button>
-          <div class="dropdown-content">
+          <div class="dropdown-content text-left">
             <a href="#">{{ options["0"] }}</a>
             <a href="#">{{ options["1"] }}</a>
             <a href="#">{{ options["2"] }}</a>
