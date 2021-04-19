@@ -7,7 +7,6 @@
 
 <script>
 import Nav from "@/components/Nav.vue";
-
 import { mapMutations } from "vuex";
 export default {
   name: "App",

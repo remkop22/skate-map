@@ -6,10 +6,16 @@ import VueAnime from "vue-animejs";
 import vSelect from "vue-select";
 import VueLottiePlayer from "vue-lottie-player";
 import VueCompositionAPI from "@vue/composition-api";
+import Vuesax from "vuesax";
+
+import "vuesax/dist/vuesax.css"; //Vuesax styles
+Vue.use(Vuesax, {
+  // options here
+});
+
 Vue.use(VueCompositionAPI);
 
 Vue.use(VueAnime);
-
 Vue.use(vSelect);
 // Vue.component("v-select", vSelect);
 

@@ -1,12 +1,22 @@
 <template>
   <div class="search-wrapper">
     <div class="search-container">
-      <input
+      <!-- <input
         type="search"
         class="search-bar search-bar-item"
         v-model="query"
         @input="searchSubmit"
-      />
+      /> -->
+      <vs-input
+        type="search"
+        class="search-bar search-bar-item icon-after"
+        v-model="value2"
+        placeholder="Search"
+      >
+        <template #icon>
+          <i class="bx bx-lock-open-alt"></i>
+        </template>
+      </vs-input>
       <transition name="fade">
         <img
           v-if="isMobile"
@@ -75,7 +85,8 @@
 
 <script>
 import { mapMutations, mapGetters, mapActions } from "vuex";
-import "vue-select/dist/vue-select.css";
+// import "vue-select/dist/vue-select.css";
+import "vuesax/dist/vuesax.css";
 export default {
   name: "Search",
   data() {
@@ -83,6 +94,8 @@ export default {
       currentValue: this.value,
       query: "",
       sort: "",
+      value1: "",
+      value2: "",
       filters: [],
       options: [
         "Distance",
@@ -159,7 +172,9 @@ export default {
   text-decoration: none;
   display: block;
 }
-
+.vs-input {
+  width: 100%;
+}
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover,
 .dropdown-content option:hover {
