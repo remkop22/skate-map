@@ -1,7 +1,7 @@
 <template>
   <div class="location-list-container">
     <div
-      class="location-card"
+      class="location-card cursor-pointer"
       v-for="(location, i) in locations"
       :key="i"
       :class="{ 'location-card-selected': selectedLocationId === location.id }"
@@ -90,5 +90,6 @@ p {
 .location-list-container {
   overflow-y: auto;
   overflow-x: visible;
+  min-width: 10rem;
 }
 </style>

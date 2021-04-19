@@ -1,20 +1,18 @@
 <template>
   <div class="search-wrapper">
-    <div class="search-container">
-      <!-- <input
-        type="search"
-        class="search-bar search-bar-item"
-        v-model="query"
-        @input="searchSubmit"
-      /> -->
+    <div class="search-container flex space-between">
       <vs-input
-        type="search"
-        class="search-bar search-bar-item icon-after"
-        v-model="value2"
+        class="searchinput flex-grow"
+        state="dark"
+        v-model="query"
+        icon-after
         placeholder="Search"
-      >
-        <template #icon>
-          <i class="bx bx-lock-open-alt"></i>
+        @input="searchSubmit"
+        @click-icon="setOwnLocation = !setOwnLocation"
+        ><template #icon>
+          <vs-icon icon="mood" class="icon2"
+            ><img class="cursor" src="@/assets/cursor.svg" height="2rem" />
+          </vs-icon>
         </template>
       </vs-input>
       <transition name="fade">
@@ -23,16 +21,25 @@
           :src="
             mapMode ? require('@/assets/map.svg') : require('@/assets/list.svg')
           "
-          class="switch-btn"
+          class="switch-btn pl-3 h-7"
           :class="{ 'switch-btn-map': mapMode, 'switch-btn-list': !mapMode }"
           v-on:click="setMapMode(!mapMode)"
         />
       </transition>
     </div>
+    <!-- <div class="search-container">F
+      <input
+        type="search"
+        class="search-bar search-bar-item"
+        v-model="query"
+        @input="searchSubmit"
+      />
+    </div> -->
     <div class="filter-container">
       <img class="filterbutton" src="@/assets/settings.svg" height="24rem" />
       <div class="starssort flex items-end">
-        <div class="slider-component justify-center justify-items-center w-20">
+        <!-- SLIDER FAVORITES -->
+        <!-- <div class="slider-component justify-center justify-items-center w-20">
           <div class="value justify-self-center flex mb-3">
             <svg
               class="items-center"
@@ -59,9 +66,28 @@
               @input="onInput"
             />
           </div>
-        </div>
-        <div class="dropdown justify-self-center">
-          <button
+        </div> -->
+        <div class="dropdown justify-self-center h-full">
+          <vs-select
+            multiple
+            placeholder="Sort By"
+            v-model="options"
+            @change="searchSubmit"
+          >
+            <vs-option label="Distance" value="0">
+              {{ options["0"] }}
+            </vs-option>
+            <vs-option label="Popularity" value="1">
+              {{ options["1"] }}</vs-option
+            >
+            <vs-option label="Rating" value="2"> {{ options["2"] }} </vs-option>
+            <vs-option label="Size" value="3"> {{ options["3"] }} </vs-option>
+            <vs-option label="Difficulty" value="4">
+              {{ options["4"] }}</vs-option
+            >
+            <vs-option label="Surface" value="5"> {{ options["5"] }}</vs-option>
+          </vs-select>
+          <!-- <button
             src="../assets/sort1.svg"
             class="dropbtn flex justify-content-center p-2-lg ml-4 whitespace-nowrap align-middle cursor-pointer font-bold"
           >
@@ -75,8 +101,7 @@
             <option>{{ options["3"] }}</option>
             <option>{{ options["4"] }}</option>
             <option value="difficulty">{{ options["5"] }}</option>
-            <!-- <option>{{ options[""] }}</option> -->
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -87,6 +112,7 @@
 import { mapMutations, mapGetters, mapActions } from "vuex";
 // import "vue-select/dist/vue-select.css";
 import "vuesax/dist/vuesax.css";
+
 export default {
   name: "Search",
   data() {
@@ -153,16 +179,16 @@ export default {
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: $primary;
-  font-size: 0.8rem;
-  min-width: 7rem;
-  opacity: 0.9;
-  box-shadow: 0px 0.5rem 1rem 0px rgba(0, 0, 0, 0.2);
-  z-index: 500;
-}
+// .dropdown-content {
+//   display: none;
+//   position: absolute;
+//   background-color: $primary;
+//   font-size: 0.8rem;
+//   min-width: 7rem;
+//   opacity: 0.9;
+//   box-shadow: 0px 0.5rem 1rem 0px rgba(0, 0, 0, 0.2);
+//   z-index: 500;
+// }
 
 /* Links inside the dropdown */
 .dropdown-content a,
@@ -176,21 +202,19 @@ export default {
   width: 100%;
 }
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover,
-.dropdown-content option:hover {
-  background-color: #e7e7e7;
-  cursor: pointer;
-  border-radius: 1rem;
-}
+// .dropdown-content a:hover,
+// .dropdown-content option:hover {
+//   background-color: #e7e7e7;
+//   cursor: pointer;
+//   border-radius: 1rem;
+// }
 
+.dropdown {
+  filter: sepia(2%) hue-rotate(184deg) brightness(97%) contrast(94%);
+}
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  opacity: 0.9;
 }
 
 .slider::-webkit-slider-thumb .slider::-moz-range-thumb {
@@ -265,16 +289,16 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-.search-bar {
-  display: flex;
-  outline: none;
-  background: url(../assets/search.svg) center left no-repeat,
-    url(../assets/cursor.svg) center right 10px no-repeat;
-  background-color: #c2c5cc;
-  background-size: 1.7rem, 0.9rem;
-  width: 100%;
-  padding-left: 0.9rem;
-}
+// .search-bar {
+//   display: flex;
+//   outline: none;
+//   background: url(../assets/search.svg) center left no-repeat,
+//     url(../assets/cursor.svg) center right 10px no-repeat;
+//   background-color: #c2c5cc;
+//   background-size: 1.7rem, 0.9rem;
+//   width: 100%;
+//   padding-left: 0.9rem;
+// }
 .stars {
   position: sticky;
 }
@@ -313,6 +337,9 @@ input:focus {
   outline: none;
   border: none;
   appearance: none;
+  cursor: pointer;
+  filter: invert(10%) sepia(21%) saturate(3746%) hue-rotate(190deg)
+    brightness(97%) contrast(110%);
 }
 .switch-btn-list,
 .switch-btn-map {
@@ -324,9 +351,22 @@ input:focus {
   height: 100%;
 }
 
+.vs-input__icon {
+  color: black;
+}
+
+.bx {
+  width: 20px;
+  height: 20px;
+}
+
 .slidecontainer {
   display: flex;
   flex-direction: column;
   z-index: 1;
+}
+
+.vs-input {
+  filter: sepia(2%) hue-rotate(184deg) brightness(97%) contrast(94%);
 }
 </style>

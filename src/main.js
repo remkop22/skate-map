@@ -10,6 +10,11 @@ import Vuesax from "vuesax";
 
 import "vuesax/dist/vuesax.css"; //Vuesax styles
 Vue.use(Vuesax, {
+  theme: {
+    colors: {
+      main: "#C2C5CC",
+    },
+  },
   // options here
 });
 

@@ -57,10 +57,6 @@ body {
   height: 100%;
 }
 
-#nav {
-  padding: 30px;
-}
-
 #nav a {
   font-weight: bold;
   color: $secondary;

@@ -1,6 +1,15 @@
 <template>
-  <div class="nav">
-    <img class="hamburger" src="../assets/hamburger.svg" />
+  <div class="nav pb-8 min-h-full">
+    <img
+      @click="activeSidebar = !activeSidebar"
+      class="hamburger m-8"
+      src="../assets/hamburger.svg"
+    />
+    <vs-sidebar
+      absolute
+      v-model="active"
+      :open.sync="activeSidebar"
+    ></vs-sidebar>
     <div class="nav-name">
       <vLottiePlayer
         ref="anim"
@@ -19,27 +28,20 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data: () => ({
+    active: "home",
+    activeSidebar: false,
+  }),
+};
+</script>
 
 <style scoped>
 .hamburger {
-  margin: 20px;
-  max-width: 50px;
-  max-height: 50px;
-  content: url(../assets/hamburger.svg);
   filter: invert(6%) sepia(35%) saturate(5041%) hue-rotate(206deg)
     brightness(98%) contrast(105%);
-  -webkit-transition: all 0.5s;
-  transition-property: all;
-  transition-duration: 0.5s;
-  transition-timing-function: ease;
-  transition-delay: 0s;
-}
-
-.hamburger2 {
-  margin: 20px;
-  max-width: 20px;
-  max-height: 20px;
+  cursor: pointer;
 }
 
 .nav {

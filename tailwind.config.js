@@ -10,4 +10,4 @@ module.exports = {
       tertiary: "#C2C5CC",
     },
   },
-}
+};
